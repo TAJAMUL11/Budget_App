@@ -167,12 +167,11 @@ body #main_container{
     background-color: var(--LIGHT-BG_COLOR);
     backdrop-filter: blur(10px);
 }
+
 .budget-container .app-title{
     width: 100%; 
     margin-bottom: 2.5rem;
-    text-align: center;
-
-    
+    text-align: center;   
 }
 
 .budget-container .app-title a{
@@ -250,6 +249,7 @@ body #main_container{
     align-items: center;
     flex-direction: column;
     background-color: #ffffff;
+    overflow-y: hidden;
 }
 
 .budget-dashboard .dash-title{
@@ -602,16 +602,16 @@ body #main_container{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: .3rem;
+    padding: 1rem;
 }
 #footICons p {
     color: var(--TEXT-COLOR-ONE);
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     padding: .5rem 0;
 }
 
 .details a{
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: var(--TEXT-COLOR-ONE);
     margin: 1rem;
     padding: .6rem;
@@ -652,14 +652,7 @@ body #main_container{
     header .profile{
         padding: 1rem;
     
-    
     }
-    header .profile img{
-        width: 110px;
-        height: 110px;
-    
-    } 
-    
  
     .budget-container .app-title{
         margin-bottom: 2.1rem;
@@ -672,16 +665,6 @@ body #main_container{
 
     .budget-header .balance{
        margin: 2.2rem;
-    }
-    
-    .budget-header .balance .title{
-        font-size: 1.7rem;
-    
-    }
-    
-    .budget-header .balance .value{
-         font-size: 1.5rem;
-    
     }
     
     .budget-header .account .income, .chart, .outcome{
@@ -710,10 +693,6 @@ body #main_container{
         margin-bottom: 1.3rem ;
     }
     
-    .toggle .tab1, .tab2, .tab3{
-        font-size: 1.2rem;
-        
-    }
     .article_details a{
         border-bottom: none;
     }
@@ -721,19 +700,11 @@ body #main_container{
 }
 @media screen and (max-width: 1080px){
 
-    .budget-dashboard #all ul.list li{
-        font-size: 1.1rem;
-    }
 
     .budget-dashboard #all ul.list li #delete{
         width: 25px;
         height: 25px;
     }
-    
-    .budget-dashboard #all ul.list li.expense{
-        font-size: 1.1rem;
-    }
-    
     .budget-dashboard #expense .input input#expense-title-input{
         height: 40px;
         width : 100px;
@@ -753,11 +724,6 @@ body #main_container{
         height: 33px;
     }
 
-    
-    .budget-dashboard #expense ul.list li{
-        font-size: 1.1rem;
-    }
-    
     
     .budget-dashboard #expense ul.list li #edit{
         width: 25px;
@@ -788,12 +754,6 @@ body #main_container{
         width: 33px;
         height: 33px;
     }
-    
-    
-    .budget-dashboard #income ul.list li{
-        font-size: 1.1rem;
-    }
-
     
     .budget-dashboard #income ul.list li #edit{
         width: 25px;
@@ -842,47 +802,22 @@ body #main_container{
     #main_container .budget-container{
         height: 100vh;
     }
-    .budget-dashboard #all ul.list li{
-        font-size: 1.3rem;
-    }
-
-    .budget-dashboard #all ul.list li.expense{
-        font-size: 1.3rem;
-    }
-    
-    .budget-dashboard #expense ul.list li{
-        font-size: 1.3rem;
-    }
-    
-    .budget-dashboard #income ul.list li{
-        font-size: 1.3rem;
-    }   
 }
 
 @media screen and (max-width: 580px){
     body #main_container{
         grid-template-columns: repeat(1,1fr);
         padding: auto;
-    }  
-    
-    header .profile img{
-        width: 150px;
-        height: 150px;
-    }
+    } 
 
-    header .profile{
-        padding: 2rem;
-    
-    
-    }
     header .profile h3{
         font-size: 1.6rem;
     }
     
     .menu a{
-        margin-bottom: 1.8rem;
-        padding: 1.5rem;
-        font-size: 1.6rem;
+        margin-bottom: 1.4rem;
+        padding: 1.3rem;
+        font-size: 1.4rem;
     }
  
     header .sidebar{
@@ -890,39 +825,8 @@ body #main_container{
         transform: translateX(-410px);
     }
     .budget-dashboard .dash-title{
-        font-size: 2.4rem;
+        font-size: 2.5rem;
         
-    }
-    
-    .budget-dashboard #all ul.list li{
-        font-size: 1.3rem;
-    }
-
-    
-    .budget-dashboard #all ul.list li.expense{
-        font-size: 1.3rem;
-    }
-    
-    .budget-dashboard #expense .input input#expense-amount-input{
-        font-size: 1.3rem;
-    }
-    
- 
-    .budget-dashboard #expense ul.list li{
-        font-size: 1.3rem;
-    }
-  
-    .budget-dashboard #income .input input#income-title-input{
-        font-size: 1.3rem;
-    }
-    
-    .budget-dashboard #income .input input#income-amount-input{
-        font-size: 1.3rem;
-        
-    }
-    
-    .budget-dashboard #income ul.list li{
-        font-size: 1.3rem;
     }
 
     #footICons p {
@@ -940,92 +844,56 @@ body #main_container{
         right: 20px;
         top: 15px;
     }
-    
-    #main_container .budget-container{
-        width: 100%;
-       
-    }
+
     .budget-container .app-title{
         width: 100%; 
-        margin-bottom: 1.5rem;
-    
-        
-    }
-    
-    .budget-container .app-title a{
-        font-size: 2.3rem;
-    
+        margin-bottom: 1.5rem;  
     }
     
     .budget-header .balance{
        margin: 1.5rem;
     }
-    
-    .budget-header .balance .title{
-        font-size: 1.4rem;
-    
-    }
-    
-    .budget-header .balance .value{
-        margin-top: 5px;
-         font-size: 1.5rem;
-    
-    }
-    
+
     .budget-header .account{
         margin: 1rem 0 0 0;
-        justify-content: center;   
     }
     
     .budget-header .account .income, .chart, .outcome{
         height: 40px;
-        width: 100px;
+        width: 110px;
         margin: .5rem 0;
         padding: .6rem;
     }
-    
-    .budget-header .account .income .title{
-        font-size: 1.5rem;
-    }
-    .budget-header .account .income .income-total{
-        font-size: 1.2rem;
-    }
-    
-    .budget-header .account .outcome .title{
-        font-size: 1.5rem;
-    }
-    .budget-header .account .outcome .outcome-total{
-        font-size: 1.2rem;
-    }
 
 }
+
 @media screen and (max-width: 365px) {
     .budget-dashboard #all{
-        width: 310px;
-        height: 289px;
+        width: 300px;
+        height: 280px;
     }
     .budget-dashboard #all ul{
-        width: 310px;
+        width: 300px;
         height: 270px;
     }
 
     .budget-dashboard #expense{
-        width: 310px;
-        height: 289px;
+        width: 300px;
+        height: 280px;
     }
     
     .budget-dashboard #expense ul{
-        width: 310px;
+        width: 300px;
         height: 270px;
     }
     
     .budget-dashboard #income{
-        width: 310px;
-        height: 289px;
+        width: 300px;
+        height: 280px;
     }
     
     .budget-dashboard #income ul{
-        width: 310px;
+        width: 300px;
         height: 270px;
     }
 }
