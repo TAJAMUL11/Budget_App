@@ -1,0 +1,129 @@
+<!-- www.youtube.com/CodeExplained -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget App - JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="Header_Icon">
+            <a href="#">Log In</a>
+        </div>
+            <input type="checkbox" class="toggle-sidebar" id="toggle-sidebar">
+            <label for="toggle-sidebar" class="toggle-icon">
+                <div class="bar_top"></div>
+                <div class="bar_center"></div>
+                <div class="bar_bottom"></div>
+            </label>
+
+            <div class="sidebar">
+                <div class="profile">
+                        <img src="./icon/ProfileImg.jpg">
+                        <h3>Tajamul Wani</h3>
+                </div>
+                    <nav class="menu">
+                        <a href="#"><i class='bx bx-home' ></i> Home</a>
+                        <a href="#"><i class='bx bx-phone-call' ></i> Contact Us</a>
+                        <a href="#"><i class='bx bx-user' ></i> Account</a>
+                        <a href="#"><i class='bx bx-cog' ></i> Settings</a>
+                    </nav>
+            </div>
+     </header> 
+    <section id="main_container">              
+            <div class="budget-container">
+                    <div class="app-title">
+                        <a href="#"><i class='bx bx-wallet-alt' ></i> PocketEYE</a>
+                    </div>
+                            <div class="budget-header">
+                                    <div class="balance">
+                                        <div class="title">
+                                            Balance
+                                        </div>
+                                        <div class="value">
+                                            <small><i class='bx bx-rupee'></i></small>0
+                                        </div>
+                                    </div>
+                                        <div class="account">
+                                                <div class="income">
+                                                    <div class="title">
+                                                        Income
+                                                    </div>
+                                                    <div class="income-total">
+                                                        <small><i class='bx bx-rupee'></i></small>0
+                                                    </div>
+                                                </div>
+                                                <div class="chart"></div>
+                                                <div class="outcome">
+                                                    <div class="title">
+                                                        Expense
+                                                    </div>
+                                                    <div class="outcome-total">
+                                                        <small><i class='bx bx-rupee'></i></small>0
+                                                    </div>
+                                                </div>
+                                        </div>
+                            </div>
+                        </div>
+                <div class="budget-dashboard">
+                    <div class="dash-title">Dashboard <i class='bx bxs-edit'></i></div>
+                        <div class="toggle">
+                            <div class="tab1">Expenses</div>
+                            <div class="tab2">Income</div>
+                            <div class="tab3 active">All</div>
+                        </div>
+                        <div class="hide" id="income">
+                            <ul class="list"></ul>
+                            <div class="input">
+                                <input type="text" id="income-title-input" name="title" placeholder="Title">
+                                <input type="number" id="income-amount-input" name="amount" placeholder="0">
+                                <div class="add-income"><img src="icon/plus.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="hide" id="expense">
+                            <ul class="list"></ul>
+                            <div class="input">
+                                <input type="text" id="expense-title-input" name="title" placeholder="Title">
+                                <input type="number" id="expense-amount-input" name="amount" placeholder="0">
+                                <div class="add-expense"><img src="icon/plus.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div id="all">
+                            <ul class="list"></ul>
+                        </div>
+                </div> 
+
+                <div class="articles">
+                    <div class="article_details">
+                        <img src="./icon/articleImage1.jpg">
+                        <a href="#">How Inflation is destroying Poor and benefiting rich?</a>
+                       
+                    </div>
+                    <div class="article_details">
+                        <img src="./icon/StockImg.jpg">
+                        <a href="#">Why Stock knowledge is necessary?</a>
+                    </div>
+                    <div class="article_details">
+                        <img src="./icon/RunningImg.jpg">
+                        <a href="#">How to discipline and take control.</a>
+                    </div>
+                    
+                </div>
+                
+     </section>  
+     <footer id="footICons">
+         <p> 2024 | All rights reserved | Tajamul Wani</p>
+        <div class="details">
+            <a href=""><i class='bx bxl-gmail' ></i></a>
+            <a href=""><i class='bx bxl-linkedin' ></i></a>
+            <a href=""><i class='bx bxl-github' ></i></a> 
+        </div>  
+     </footer>
+
+    <script src="chart.js"></script>
+    <script src="budget.js"></script>
+</body>
+</html>
