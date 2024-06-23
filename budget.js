@@ -8,6 +8,12 @@ const allEl = document.querySelector("#all");
 const incomeList = document.querySelector("#income .list");
 const expenseList = document.querySelector("#expense .list");
 const allList = document.querySelector("#all .list");
+const Header = document.querySelector("header");
+const menuIcon = document.getElementById("MenuIcon");
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll',() => {
+    Header.classList.toggle('sticky', window.scrollY > 140)
+})
 
 
 // SELECT BTNS
@@ -23,6 +29,12 @@ const expenseAmount = document.getElementById("expense-amount-input");
 const addIncome = document.querySelector(".add-income");
 const incomeTitle = document.getElementById("income-title-input");
 const incomeAmount = document.getElementById("income-amount-input");
+
+menuIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+
+});
 
 
 // VARIABLES
@@ -213,4 +225,5 @@ function inactive( elements ){
         element.classList.remove("active");
     })
 }
+
 

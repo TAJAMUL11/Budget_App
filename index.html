@@ -1,4 +1,3 @@
-<!-- www.youtube.com/CodeExplained -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,67 +8,78 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <header>
-        <div class="Header_Icon">
-            <a href="#">Log In</a>
+    <header id="header">
+        <div class="icon">
+            <a href="#Home" class="logo">
+                <img src="./icon/LogoIcon.png" alt="Icon">
+             Fortuna
+            </a>
+            <p><i class='bx bx-menu' id="MenuIcon"></i></p>
         </div>
-            <input type="checkbox" class="toggle-sidebar" id="toggle-sidebar">
-            <label for="toggle-sidebar" class="toggle-icon">
-                <div class="bar_top"></div>
-                <div class="bar_center"></div>
-                <div class="bar_bottom"></div>
-            </label>
-
-            <div class="sidebar">
-                <div class="profile">
-                        <img src="./icon/ProfileImg.jpg">
-                        <h3>Tajamul Wani</h3>
-                </div>
-                    <nav class="menu">
-                        <a href="#"><i class='bx bx-home' ></i> Home</a>
-                        <a href="#"><i class='bx bx-phone-call' ></i> Contact Us</a>
-                        <a href="#"><i class='bx bx-user' ></i> Account</a>
-                        <a href="#"><i class='bx bx-cog' ></i> Settings</a>
-                    </nav>
-            </div>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#budgetContainer">Expenses</a>
+            <a href="#Blogs">Blogs</a>
+            <a href="#" class="signIn">Sign In</a> 
+        </nav>
      </header> 
-    <section id="main_container">              
-            <div class="budget-container">
-                    <div class="app-title">
-                        <a href="#"><i class='bx bx-wallet-alt' ></i> PocketEYE</a>
-                    </div>
-                            <div class="budget-header">
-                                    <div class="balance">
-                                        <div class="title">
-                                            Balance
-                                        </div>
-                                        <div class="value">
-                                            <small><i class='bx bx-rupee'></i></small>0
-                                        </div>
-                                    </div>
-                                        <div class="account">
-                                                <div class="income">
-                                                    <div class="title">
-                                                        Income
-                                                    </div>
-                                                    <div class="income-total">
-                                                        <small><i class='bx bx-rupee'></i></small>0
-                                                    </div>
-                                                </div>
-                                                <div class="chart"></div>
-                                                <div class="outcome">
-                                                    <div class="title">
-                                                        Expense
-                                                    </div>
-                                                    <div class="outcome-total">
-                                                        <small><i class='bx bx-rupee'></i></small>0
-                                                    </div>
-                                                </div>
-                                        </div>
-                            </div>
-                        </div>
+
+     <section id="Home">
+        <video src="./Images/HomeVideo.mp4" loop autoplay muted id="homeVideo"></video>
+        <div class="homedetails">
+            <h1>Don't Wing It, Finch It! <span class="wraper">Budget with Ease</span> </h1>
+            <p>Easily track your income and expenses, set goals, and make smart spending decisions. Sign up today and see how much you can save!</p>
+            <a href="#budgetContainer">Get Started</a> 
+        </div>
+
+     </section>
+
+
+    <section id="budgetContainer">
+        <div class="navigation">
+            <div class="profile">
+                <img src="./Images/User.png" alt="Profile">
+                <h5>Welcome Tajamul</h5>
+            </div>
+            <nav class="budgetNav">
+                <a href="#">Activities</a>
+                <a href="#">Messages</a>
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+            </nav>
+        </div>
+            <div class="overviewCon">
+                   <div class="account">
+                    <div class="balance">
+                        <div class="title">
+                           Balance
+                       </div>
+                       <div class="value">
+                           <small><i class='bx bx-rupee'></i></small>0
+                       </div>
+                   </div>
+                       <div class="income">
+                           <div class="title">
+                               Income
+                           </div>
+                           <div class="income-total">
+                               <small><i class='bx bx-rupee'></i></small>0
+                           </div>
+                       </div>
+                                       
+                       <div class="outcome">
+                           <div class="title">
+                               Expense
+                           </div>
+                           <div class="outcome-total">
+                               <small><i class='bx bx-rupee'></i></small>0
+                           </div>
+                       </div>
+                   </div>
+                        
+                </div>
                 <div class="budget-dashboard">
-                    <div class="dash-title">Dashboard <i class='bx bxs-edit'></i></div>
+                    <div class="dash-title">Activities</div>
                         <div class="toggle">
                             <div class="tab1">Expenses</div>
                             <div class="tab2">Income</div>
@@ -80,7 +90,7 @@
                             <div class="input">
                                 <input type="text" id="income-title-input" name="title" placeholder="Title">
                                 <input type="number" id="income-amount-input" name="amount" placeholder="0">
-                                <div class="add-income"><img src="icon/plus.png" alt=""></div>
+                                <div class="add-income"><img src="icon/add.png" alt=""></div>
                             </div>
                         </div>
                         <div class="hide" id="expense">
@@ -88,39 +98,72 @@
                             <div class="input">
                                 <input type="text" id="expense-title-input" name="title" placeholder="Title">
                                 <input type="number" id="expense-amount-input" name="amount" placeholder="0">
-                                <div class="add-expense"><img src="icon/plus.png" alt=""></div>
+                                <div class="add-expense"><img src="icon/add.png" alt=""></div>
                             </div>
                         </div>
                         <div id="all">
                             <ul class="list"></ul>
                         </div>
-                </div> 
-
-                <div class="articles">
-                    <div class="article_details">
-                        <img src="./icon/articleImage1.jpg">
-                        <a href="#">How Inflation is destroying Poor and benefiting rich?</a>
-                       
-                    </div>
-                    <div class="article_details">
-                        <img src="./icon/StockImg.jpg">
-                        <a href="#">Why Stock knowledge is necessary?</a>
-                    </div>
-                    <div class="article_details">
-                        <img src="./icon/RunningImg.jpg">
-                        <a href="#">How to discipline and take control.</a>
-                    </div>
-                    
                 </div>
-                
-     </section>  
-     <footer id="footICons">
-         <p> 2024 | All rights reserved | Tajamul Wani</p>
-        <div class="details">
-            <a href=""><i class='bx bxl-gmail' ></i></a>
-            <a href=""><i class='bx bxl-linkedin' ></i></a>
-            <a href=""><i class='bx bxl-github' ></i></a> 
-        </div>  
+                <div class="chartDiv">
+                    <h3>Graph</h3>
+                    <div class="chart"></div>
+                    <div class="colors">
+                        <div class="expenseColors">
+                            <small>Expense</small>
+                            <span id="Ecolor">0</span>
+                        </div>
+                        <div class="BalanceColors">
+                            <small>Balance</small>
+                            <span id="Bcolor">0</span>
+                        </div>
+                    </div>
+                </div>             
+     </section>
+                    <!-- Footer content -->
+     <footer id="footer">
+        <div class="footerNav">
+            <div class="footerLogo">
+                <a href="#Home" class="Flogo">Fortuna</a>
+            </div>
+            <div class="footer__icons">
+                <a href="mailto:thetj4054@gmail.com" target="_blank"><i class='bx bxl-gmail' ></i></a>
+                <a href="https://www.linkedin.com/in/tajamul-wani/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                <a href="https://github.com/TAJAMUL11" target="_blank"><i class='bx bxl-github' ></i></a>
+            </div>
+         </div>
+         <div class="footerQuickLinks">
+            <p>Quick Links</p>
+            <div class="quickLinks">
+                <a href="" target="_blank">Stocks</a>
+                <a href="" target="_blank">Advisor</a>
+                <a href="" target="_blank">Offers</a>
+                <a href="" target="_blank">Marketing</a>
+                <a href="" target="_blank">Crypto</a>
+            </div>
+         </div>
+         <div class="footerSupport">
+            <p>Support</p>
+            <div class="Support">
+                <a href="#">API</a>
+                <a href="#">Products</a>
+                <a href="#">Donate</a>
+                <a href="#">TroubleShoot</a>
+                <a href="#">Development</a>
+            </div>
+         </div>
+
+      <div class="footer__container">
+        <h4>Subscribe To Get Daily Updates</h4>
+                <form action="#" class="formFooter">
+                    <input type="email" placeholder="Enter your email" />
+                    <button id="subBtn">Subscribe</button>
+                </form>  
+            <div class="footerRights">
+                <p>&copy;2024 Tajamul Wani | All rights reserved</p>
+            </div>
+      </div>
+ 
      </footer>
 
     <script src="chart.js"></script>

@@ -1,12 +1,10 @@
-/* www.youtube.com/CodeExplained */
-
 // SELECT CHART ELEMENT
 const chart = document.querySelector(".chart");
 
 // CREATE CANVAS ELEMMENT
 const canvas = document.createElement("canvas");
-canvas.width = 50;
-canvas.height = 50;
+canvas.width = 220;
+canvas.height = 220;
 
 // APPEND CANVAS TO CHART ELEMENT
 chart.appendChild(canvas);
@@ -15,10 +13,10 @@ chart.appendChild(canvas);
 const ctx = canvas.getContext("2d");
 
 // CHANGE THE LINE WIDTH
-ctx.lineWidth = 8;
+ctx.lineWidth = 20;
 
 // CIRCLE RADIUS
-const R = 20;
+const R = 100;
 
 function drawCircle(color, ratio, anticlockwise){
 

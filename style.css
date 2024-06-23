@@ -16,270 +16,309 @@
 :root{
     --TEXT-COLOR-ONE :#fff;
     --TEXT-COLOR-TWO : #f0624d;
-    --BG-COLOR--BUDGET : #34006a;
-    --TAB-TOGGLE-COLOR : #1a0034;
-    --FONT-FAMILY : "Roboto";
-    --LIGHT-BG_COLOR :#0000003e;
-
+    --BG-COLOR : rgba(10, 10, 10, 0.961);
+    --BG-box : rgba(63, 62, 62, 0.282);
+    --Boder_radius : 5px;
+    --box_shadow-btn : 0 0 0.5rem #f0624d;
+    --boxBorder-radius: 17px;
 }
 html{
     scroll-behavior: smooth;
+    scroll-padding: 5rem;
     font-family: var(--FONT-FAMILY);
-
 }
 
 /*=====================================Header Content================================*/
-
-header .Header_Icon{
-    background-color: var(--TAB-TOGGLE-COLOR);
+header{
+    background-color: #00000000;
     backdrop-filter: blur(10px);
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    z-index: 1;
-    
-}
-
-.Header_Icon a{
-    color: var(--TEXT-COLOR-ONE);
-    position: absolute;
-    right: 40px;
-    top: 8px;
-    font-size: 1.5rem;
-    border: 1px solid var(--TEXT-COLOR-ONE);
-    border-radius: 7px;
-    padding: .4rem;
-    transition: .3s all ease-in-out;
-}
-.Header_Icon a:hover,
-.Header_Icon a:focus{
-    transform: scale(0.97);
-    opacity: 0.6;
-}
-
-.toggle-icon div{
-    background-color: var(--TEXT-COLOR-ONE);
-    width: 100%;
-    height: 3px;
-}
-.toggle-icon{
-    position: absolute;
-    top: 22px;
-    left: 15px;
-    width: 22px;
-    height: 22px;
-    z-index: 1;
-    cursor: pointer;
-    transition: 0.3s all;
-
-}
-.toggle-icon .bar_center{
-    margin: 3px 0;
-}
-
-input[type="checkbox"]:checked ~ .sidebar{
-    transform: translateX(0px);
-}
-
-input[type="checkbox"]:checked ~ .toggle-icon > .bar_top{
-    transform: rotate(135deg);
-    margin-top: 8px;
-}
-
-input[type="checkbox"]:checked ~ .toggle-icon > .bar_center{
-    opacity: 0;
-}
-
-input[type="checkbox"]:checked ~ .toggle-icon > .bar_bottom{
-    transform: rotate(-135deg);
-    margin-top: -12px;
-}
-
-
-header .sidebar{
-    background-color: var(--TAB-TOGGLE-COLOR);
-    backdrop-filter: blur(10px);
-    height: 100%;
-    width: 330px;
+    padding: 1% 1.6%;
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
-    margin-top: 3.5rem;
-    transform: translateX(-330px);
-    transition: transform 250ms ease-in-out;
-    z-index: 1;
+    width: 100%;
+    z-index: 99;
 }
-
-
-header .profile{
-    text-align: center;
-    padding: 1.3rem;
-
-
+header.sticky{
+    background-color: var(--BG-COLOR);
 }
-header .profile img{
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 2px solid var(--TEXT-COLOR-ONE);
-    object-fit: cover;
-    object-position: top;
-
-} 
-header .profile h3{
+header .icon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon #MenuIcon{
+    font-size: 2.5rem;
+    display: none;
     color: var(--TEXT-COLOR-ONE);
-    font-weight: bold;
+    
 }
-
-.menu a{
+header .logo {
     color: var(--TEXT-COLOR-ONE);
-    display: block;
-    margin-bottom: 1.5rem;
-    padding: 1.2rem;
-    font-size: 1.3rem;
-    border-bottom: 2px solid var(--LIGHT-BG_COLOR);
-    transition: 0.3s all ease-in-out;
-
+    font-size: 2.2rem;
+    text-decoration: none;
+}
+.logo img{
+    width: 35px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 .3rem var(--TEXT-COLOR-TWO));
 }
 
-.menu a:hover,
-.menu a:focus{
+header .navbar{
+    display: flex;
+    align-items: center;
+    gap: 0 2rem;
+    text-decoration: none;
+}
+.navbar a{
+    font-size: 1.4rem;
+    color: var(--TEXT-COLOR-ONE);
+    margin: 0 0.3rem;
+    transition: all 0.3s ease-in-out;
+}
+.navbar a:hover,
+.navbar a:focus,
+.navbar a:active{
     color: var(--TEXT-COLOR-TWO);
-    letter-spacing: 1.3px;
-} 
+    transform: scale(0.95);
+}
+.navbar .signIn{
+    background-color: var(--TEXT-COLOR-TWO);
+    padding: 0.5rem;
+    border-radius: var(--Boder_radius);
+    box-shadow: var(--box_shadow-btn);
+    transition: all 0.2s ease-in-out;
+    font-size: 1.3rem;
+}
+.navbar .signIn:hover,
+.navbar .signIn:focus,
+.navbar .signIn:active{
+    color: var(--TEXT-COLOR-ONE);
+    transform: scale(1);
+    box-shadow: none;
+}
 
-/* ========================================= General properties================================= */
-
-body #main_container{
+/*=================================HOME PAGE =================================*/
+#Home{
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1.7fr 1.7fr 1fr;
-    background-color: var(--BG-COLOR--BUDGET);
-    padding-top: 1%;
- }
- /* ===================================== Budget CONTAINER =================================*/
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--BG-COLOR);
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.91),rgba(20, 20, 20, 0.91));
+}
 
- #main_container .budget-container{
+#Home #homeVideo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;  
+}
+#Home .homedetails{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center;  
+    color: var(--TEXT-COLOR-ONE);
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem 0;
+}
+.homedetails h1, .wraper{
+    font-size: 3.8rem;
+}
+.wraper{
+    white-space: nowrap;
+}
+.homedetails p{
+    font-size: 1.2rem;
+}
+.homedetails a{
+    color: var(--TEXT-COLOR-ONE);
+    font-weight: 500;
+    font-size: 1.7rem;
+    background-color: var(--TEXT-COLOR-TWO);
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--Boder_radius);
+    box-shadow: var(--box_shadow-btn);
+    transition: 0.2s ease-in-out;
+    width: 200px;
+}
+.homedetails a:hover,
+.homedetails a:focus,
+.homedetails a:active{
+    box-shadow: none;
+}
+
+
+/* 
+========================================= Budget Container================================= */
+
+body #budgetContainer{
+    min-height: 100vh;
+    padding: 0.1rem;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    display: grid;
+    gap: 0.3rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 0.8fr 1.6fr 1fr 1fr;
+    grid-template-areas: "navigation overviewCon budget-dashboard budget-dashboard"
+                        "navigation overviewCon budget-dashboard budget-dashboard"
+                        "navigation chartDiv budget-dashboard budget-dashboard"
+                        "navigation chartDiv budget-dashboard budget-dashboard";
+}
+
+#budgetContainer .navigation{
+    grid-area: navigation;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: var(--LIGHT-BG_COLOR);
-    backdrop-filter: blur(10px);
+    background-color: var(--BG-box);
+    border-radius: var(--boxBorder-radius);
+    padding: 0.6rem 0;
+}
+.navigation .profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem 0;
 }
 
-.budget-container .app-title{
-    width: 100%; 
-    margin-bottom: 2.5rem;
-    text-align: center;   
+.navigation .profile img{
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 1px solid var(--TEXT-COLOR-ONE);
 }
-
-.budget-container .app-title a{
+.profile h5{
     color: var(--TEXT-COLOR-ONE);
-    font-size: 3rem;
-
-}
-.budget-container .app-title a i{
-    color: var(--TEXT-COLOR-TWO);
-}
-
-
-.budget-header .balance{
-   margin: 2.4rem;
-}
-
-.budget-header .balance .title{
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 2rem;
-
-}
-
-.budget-header .balance .value{
-    color: var(--TEXT-COLOR-ONE);
-    margin-top: 10px;
-     font-size: 1.8rem;
-
-}
-
-.budget-header .account{
-    width: 100%;
-    margin: 2rem 0 0 0;
     text-align: center;
+    
+}
+.navigation .budgetNav{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+.budgetNav a{
+    color: var(--TEXT-COLOR-ONE);
+    font-size: 1.2rem;
+    opacity: 0.6;
+    
+
+}
+.budgetNav a:hover,
+.budgetNav a:focus,
+.budgetNav a:active{
+    opacity: 1;
+    text-shadow: 0 0 0.2rem var(--TEXT-COLOR-TWO);
+}
+
+
+
+#budgetContainer .overviewCon{
+    grid-area: overviewCon;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    
-}
-
-.budget-header .account .income, .chart, .outcome{
-    height: 80px;
-    display: inline-block;
-    width: 170px;
-    margin: 1rem 0;
-    vertical-align: middle;
-    padding: 1.1rem;
-}
-
-
-.budget-header .account .income .title{
+    flex-direction: column;
     color: var(--TEXT-COLOR-ONE);
-    font-size: 2rem;
+    background-color: var(--BG-box);
+    border-radius: var(--boxBorder-radius);
+}
+
+.balance .title{
+    color: var(--TEXT-COLOR-ONE);
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.balance .value{
+    color: var(--TEXT-COLOR-ONE);
+     font-size: 1.3rem;
+}
+
+.account{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;  
+}
+
+.account .income, .outcome{
+    margin: 1rem;
+    padding: 0.6rem;
+}
+
+.account .income .title{
+    color: var(--TEXT-COLOR-ONE);
+    font-size: 1.5rem;
     margin-bottom: .4rem;
 }
-.budget-header .account .income .income-total{
+.account .income .income-total{
     color: var(--TEXT-COLOR-ONE);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
-.budget-header .account .outcome .title{
+.account .outcome .title{
     color: var(--TEXT-COLOR-ONE);
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: .4rem;
 }
-.budget-header .account .outcome .outcome-total{
+.account .outcome .outcome-total{
     color: var(--TEXT-COLOR-TWO);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 /*/////////////   DASHBOARD    /////////////*/
 
-#main_container .budget-dashboard{
+#budgetContainer .budget-dashboard{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    background-color: #ffffff;
-    overflow-y: hidden;
+    padding: 2% 0;
+    background-color: var(--BG-box); 
+    grid-area: budget-dashboard;
+    border-radius: var(--boxBorder-radius);
 }
 
 .budget-dashboard .dash-title{
     width: 70%;
-    color: var(--TAB-TOGGLE-COLOR);
-    font-size: 3rem;
+    color: var(--TEXT-COLOR-ONE);
+    font-size: 2.3rem;
     margin-bottom: 2rem ;
     font-weight: bolder;
 }
-.budget-dashboard .dash-title i{
-    color: var(--TEXT-COLOR-TWO);
-}
-
-.toggle{
-    display: block;
-    margin: 1.9rem 1.3rem 0 0;
+.budget-dashboard .toggle{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .toggle .tab1, .tab2, .tab3{
-    display: inline-block;
     cursor: pointer;
     font-size: 1.4rem;
     padding: .5rem;
-    color: #1a0034;
+    color: var(--TEXT-COLOR-ONE);
     opacity: 0.4;
-    font-weight: bolder;
-}
-
-.toggle .tab2, .tab3{
-    margin-left: 1.3rem;
+    font-weight: 500;
 }
 
 .active{
@@ -295,6 +334,7 @@ body #main_container{
     -moz-user-select: auto;
     -ms-user-select: auto;
     user-select: auto;
+    width: 100%;
 
 }
 
@@ -311,18 +351,30 @@ body #main_container{
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-top:20px;
+    margin-top: 1.1rem;
     overflow-x: auto;
+}
+.budget-dashboard #all ul::-webkit-scrollbar{
+    background-color: var(--TEXT-COLOR-ONE);
+    border-radius: var(--boxBorder-radius);
+    width: 12px;
+}
+.budget-dashboard #all ul::-webkit-scrollbar-thumb{
+    background-color: var(--TEXT-COLOR-TWO);
+    border-radius: var(--boxBorder-radius);
+
 }
 
 .budget-dashboard #all ul.list li{
     position: relative;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    color: var(--TEXT-COLOR-ONE);
 }
 
 .budget-dashboard #all ul.list li *{
     display: inline-block;
     height: 30px;
+    margin-bottom: 0.2rem;
     vertical-align: middle;
 }
 
@@ -340,18 +392,18 @@ body #main_container{
 
 .budget-dashboard #all ul.list li #delete{
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     right: 20px;
     cursor: pointer;
     background-image: url('icon/trash.png');
-    background-size: 20px 20px;
+    background-size: 25px 25px;
     background-repeat: no-repeat;
 }
 
 .budget-dashboard #all ul.list li.expense{
     color: var(--TEXT-COLOR-TWO);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 /* //////// EXPENSE ////////// */
@@ -365,9 +417,8 @@ body #main_container{
 .budget-dashboard #expense .input{
    display: flex;
    justify-content: center;
-   align-items: center;
-   border-top: 2px solid var(--LIGHT-BG_COLOR);
-   
+   align-items: center; 
+   margin-top: 0.7rem;
 }
 
 .budget-dashboard #expense .input *{
@@ -376,29 +427,41 @@ body #main_container{
 }
 
 .budget-dashboard #expense .input input#expense-title-input{
-    height: 50px;
-    width : 130px;
-    padding-left: 10px;
-    font-size: 1.4rem;
-    margin-right: .65rem;
-    border-radius: 10px 0 0 10px;
-    border: 2px solid var(--LIGHT-BG_COLOR);
+    width : 170px;
+    padding: 1rem;
+    font-size: 1.3rem;
+    margin-right: .9rem;
+    background-color: #f3f0f029;
+    backdrop-filter: blur(10px);
+    border: none;
+    outline: none;
+    border-radius: var(--Boder_radius);
+    color: var(--TEXT-COLOR-ONE);
+}
+#expense-title-input::placeholder{
+    color: var(--TEXT-COLOR-ONE);
 }
 
 .budget-dashboard #expense .input input#expense-amount-input{
-    height: 50px;
-    width : 130px;
-    padding-left: 10px;
-    font-size: 1.4rem;
-    margin: 5px;
+    width : 120px;
+    padding: 1rem;
+    font-size: 1.3rem;
     margin-left: -10px;
-    border-radius: 0 10px 10px 0;
-    border: 2px solid var(--LIGHT-BG_COLOR);
+    margin-right: 3px;
+    background-color: #f3f0f029;
+    backdrop-filter: blur(10px);
+    border: none;
+    outline: none;
+    border-radius: var(--Boder_radius);
+    color: var(--TEXT-COLOR-ONE);
+}
+#expense-amount-input::placeholder{
+    color: var(--TEXT-COLOR-ONE);
 }
 
 .budget-dashboard #expense .input .add-expense img{
-    width: 43px;
-    height: 43px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -411,10 +474,20 @@ body #main_container{
     margin-top:20px;
     overflow-x: auto;
 }
+.budget-dashboard #expense ul::-webkit-scrollbar{
+    background-color: var(--TEXT-COLOR-ONE);
+    border-radius: var(--boxBorder-radius);
+    width: 12px;
+    
+}
+.budget-dashboard #expense ul::-webkit-scrollbar-thumb{
+background-color: var(--TEXT-COLOR-TWO);
+    border-radius: var(--boxBorder-radius);
+}
 
 .budget-dashboard #expense ul.list li{
     position: relative;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 .budget-dashboard #expense ul.list li *{
@@ -424,7 +497,7 @@ body #main_container{
 }
 
 .budget-dashboard #expense ul.list li .entry{
-    width:250px;
+    width: 250px;
     height: auto;
     padding-left: 20px;
     margin-bottom: 10px;;
@@ -434,23 +507,23 @@ body #main_container{
 
 .budget-dashboard #expense ul.list li #edit{
     position: absolute;
-    width:30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     right: 50px;
     cursor: pointer;
     background-image: url("icon/edit.png");
-    background-size: 20px 20px;
+    background-size: 25px 25px;
     background-repeat: no-repeat;
 }
 
 .budget-dashboard #expense ul.list li #delete{
     position: absolute;
-    width:30px;
+    width: 30px;
     height: 30px;
     right: 20px;
     cursor: pointer;
     background-image: url('icon/trash.png');
-    background-size: 20px 20px;
+    background-size: 25px 25px;
     background-repeat: no-repeat;
 }
 
@@ -466,8 +539,7 @@ body #main_container{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 360px;
-    border-top: 2px solid var(--LIGHT-BG_COLOR);
+    margin-top: 0.7rem;
 }
 
 .budget-dashboard #income .input *{
@@ -476,30 +548,43 @@ body #main_container{
 }
 
 .budget-dashboard #income .input input#income-title-input{
-    height: 50px;
-    width : 130px;
-    padding-left: 10px;
-    font-size: 1.4rem;
-    margin-right: .65rem;
-    border-radius: 10px 0 0 10px;
-    border: 2px solid var(--LIGHT-BG_COLOR);
+    width : 170px;
+    padding: 1rem;
+    font-size: 1.3rem;
+    margin-right: .9rem;
+    background-color: #f3f0f029;
+    backdrop-filter: blur(10px);
+    border: none;
+    outline: none;
+    border-radius: var(--Boder_radius);
+    color: var(--TEXT-COLOR-ONE);
 }
+#income-title-input::placeholder{
+    color: var(--TEXT-COLOR-ONE);
+} 
+
+#income-amount-input::placeholder{
+    color: var(--TEXT-COLOR-ONE);
+} 
 
 .budget-dashboard #income .input input#income-amount-input{
-    height: 50px;
-    width : 130px;
-    padding-left: 10px;
-    font-size: 1.4rem;
-    margin: 5px;
+    width : 120px;
+    padding: 1rem;
+    font-size: 1.3rem;
     margin-left: -10px;
-    border-radius: 0 10px 10px 0;
-    border: 2px solid var(--LIGHT-BG_COLOR);
+    margin-right: 3px;
+    background-color: #f3f0f029;
+    backdrop-filter: blur(10px);
+    border: none;
+    outline: none;
+    border-radius: var(--Boder_radius);
+    color: var(--TEXT-COLOR-ONE);
     
 }
 
 .budget-dashboard #income .input .add-income img{
-    width: 43px;
-    height: 43px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -511,11 +596,22 @@ body #main_container{
     padding: 0;
     margin-top:20px;
     overflow-x: auto;
+    color: var(--TEXT-COLOR-ONE);
+}
+.budget-dashboard #income ul::-webkit-scrollbar{
+    background-color: var(--TEXT-COLOR-ONE);
+    border-radius: var(--boxBorder-radius);
+    width: 12px;
+    
+}
+.budget-dashboard #income ul::-webkit-scrollbar-thumb{
+    background-color: var(--TEXT-COLOR-TWO);
+    border-radius: var(--boxBorder-radius);
 }
 
 .budget-dashboard #income ul.list li{
     position: relative;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 .budget-dashboard #income ul.list li *{
@@ -534,367 +630,621 @@ body #main_container{
 
 .budget-dashboard #income ul.list li #edit{
     position: absolute;
-    width:30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     right: 50px;
     cursor: pointer;
     background-image: url("icon/edit.png");
-    background-size: 20px 20px;
+    background-size: 25px 25px;
     background-repeat: no-repeat;
 }
 
 .budget-dashboard #income ul.list li #delete{
     position: absolute;
-    width:30px;
+    width: 30px;
     height: 30px;
     right: 20px;
     cursor: pointer;
     background-image: url('icon/trash.png');
-    background-size: 20px 20px;
+    background-size: 25px 25px;
     background-repeat: no-repeat;
 }
 
-                                            /* Article section*/
 
-#main_container .articles{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+#budgetContainer .chartDiv{
+    grid-area: chartDiv;
+    display: flex;
     justify-content: center;
-    background-color: var(--TAB-TOGGLE-COLOR);
-    backdrop-filter: blur(10px);
+    align-items: center;
+    gap: 0.3rem 0;
+    background-color: var(--BG-box);
+    border-radius: var(--boxBorder-radius);
+    flex-direction: column;
+    padding: 0.5rem;
+
+}
+.chartDiv h3{
+    color: var(--TEXT-COLOR-ONE);
+    text-align: left;
+    width: 70%;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
     
 }
-.articles .article_details:first-child{
-    margin-top: 1.5rem;
-}
-.articles .article_details{
-    width: 100%;
+.chartDiv .colors{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    text-align: center;
-    flex-direction: column;
-}
-
-.article_details img{
-    width: 80%;
-    height: auto;
-}
-.article_details a{
-    font-size: .9rem;
-    margin-top: .4rem;
+    width: 100%;
     color: var(--TEXT-COLOR-ONE);
-    border-bottom: 1px solid var(--TEXT-COLOR-ONE);
-    transition: .3s all ease-in-out;
 }
-.article_details a:hover,
-.article_details a:focus{
+.colors #Ecolor{
+    background-color: var(--TEXT-COLOR-TWO);
+    width: 70px;
+    height: auto;
     color: var(--TEXT-COLOR-TWO);
-    border-bottom: 1px solid var(--TEXT-COLOR-TWO);
+    border-radius: 10%;
+    padding: 0 0.3rem;
 }
-
+.colors #Bcolor{
+    background-color: var(--TEXT-COLOR-ONE);
+    width: 70px;
+    height: auto;
+    color: var(--TEXT-COLOR-ONE);
+    border-radius: 10%;
+    padding: 0 0.3rem;
+}
 /*========================================Footer section========================================*/
 
-#footICons{
-    background-color: var(--TAB-TOGGLE-COLOR);
-    backdrop-filter: blur(10px);
+#footer{
+    background-color: rgba(0, 0, 0, 0.96);
+    padding: 1% 2%;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 0 0.5rem;
+    border-top: 1px solid var(--BG-box);
+}
+#footer .footerNav{
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    padding: 1rem;
-}
-#footICons p {
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 1.15rem;
-    padding: .5rem 0;
+    flex-direction: column;
+    gap: 1rem 0;
 }
 
-.details a{
-    font-size: 1.2rem;
+.footerLogo .Flogo{
     color: var(--TEXT-COLOR-ONE);
-    margin: 1rem;
-    padding: .6rem;
-    transition: .3s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 1.7rem;
+    
 }
-.details a:hover,
-.details a:focus{
-    color: var(--TEXT-COLOR-TWO);
-    transform: scale(1.05);
+.Flogo i{
+    font-size: 3.5rem;
+}
+
+.footerNav .footer__icons{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__icons a,
+.footer__icons i{
+    text-decoration: none;
+    color: var(--TEXT-COLOR-ONE);
+    font-size: 0.9rem;
+    background-color: var(--TEXT-COLOR-TWO);
+    padding: .3rem;
+    border-radius: 50%;
+    box-shadow: var(--box_shadow-btn);
+    transition: 0.3s ease-in-out all;
+    font-size: 1.1rem;
+}
+.footer__icons a:hover,
+.footer__icons a:focus{
+    transform: scale(95%);
+    box-shadow: none;
+}
+#footer .footerQuickLinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.footerQuickLinks p{
+    color: var(--TEXT-COLOR-ONE);
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    
+}
+.footerQuickLinks .quickLinks{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem 0;
+
+}
+.quickLinks a{
+    color: var(--TEXT-COLOR-ONE);
+    text-decoration: none;
+    opacity: 0.55;
+    transition: all 0.2s ease-in-out;
+}
+.quickLinks a:hover{
+    opacity: 1;
+}
+
+#footer .footerSupport{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.footerSupport p{
+    color: var(--TEXT-COLOR-ONE);
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    
+}
+.footerSupport .Support{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem 0;
+
+}
+.Support a{
+    color: var(--TEXT-COLOR-ONE);
+    text-decoration: none;
+    opacity: 0.55;
+    transition: all 0.2s ease-in-out;
+}
+.Support a:hover{
+    opacity: 1;
+}
+
+
+
+#footer .footer__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.footer__container h4{
+    color: var(--TEXT-COLOR-ONE);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.footer__container .formFooter{
+    padding: 1rem;
+    display: flex;
+    gap: 0 0.3rem;
+}
+
+.formFooter input{
+    padding: .8rem;
+    width: 250px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: var(--TEXT-COLOR-ONE);
+    background-color: var(--BG-box);
+    backdrop-filter: blur(10px);
+    font-size: 1rem;
+
+}
+.formFooter input::placeholder{
+    color: var(--TEXT-COLOR-ONE);
+}
+.formFooter  #subBtn{
+    border: none;
+    outline: none;
+    padding: .5rem;
+    font-size: .8rem;
+    color: var(--TEXT-COLOR-ONE);
+    font-weight: 700;
+    background-color: var(--TEXT-COLOR-TWO);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: var(--box_shadow-btn);
+    transition: all 0.3s ease;
+}
+.formFooter #subBtn:hover{
+    box-shadow: none;
+}
+.footerRights p{
+    color: var(--TEXT-COLOR-ONE);
+    font-weight: 600;
+    letter-spacing: 0.8px;
+   
 }
 
 
 /* ================================================Media Queries=================================== */
 
-@media screen and (max-width: 1450px) {
+ @media screen and (max-width: 1390px) {
     html{
-        font-size: 93%;
+        font-size: 90%;
+    }
+}
+
+@media screen and (max-width: 1160px){
+    .homedetails h1, .wraper{
+        font-size: 3.5rem;
+    }
+    .homedetails p{
+        font-size: 1.1rem;
+    }
+    body #budgetContainer{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 0.6fr 1.2fr 1.6fr;
+        grid-template-areas: "navigation overviewCon budget-dashboard"
+                            "navigation overviewCon budget-dashboard"
+                            "navigation chartDiv budget-dashboard"
+                            ;
+    }
+    .navigation .profile img{
+        width: 70px;
     }
 
-    .menu a{
-        margin-bottom: 1rem;
-        padding: 1rem;
-        font-size: 1.2rem;
-    
+    .account .income, .outcome{
+        margin: 0.8rem;
     }
 
 }
-@media screen and (max-width: 1270px){
-    body #main_container{
-        grid-template-columns: 1fr 2fr 1fr;
-    }
-    .Header_Icon a{
-        font-size: 1.2rem;
-        right: 50px;
-        top: 14px;
-    }    
-    
-    header .profile{
-        padding: 1rem;
-    
-    }
- 
-    .budget-container .app-title{
-        margin-bottom: 2.1rem;
-    }
-    
-    .budget-container .app-title a{
-        font-size: 2.8rem;
-    
-    }
 
-    .budget-header .balance{
-       margin: 2.2rem;
+@media screen and (max-width: 986px){
+    body #budgetContainer{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 0.6fr 1.2fr 1.6fr;
+        grid-template-areas: "navigation navigation  navigation"
+                            "overviewCon budget-dashboard budget-dashboard"
+                            "chartDiv budget-dashboard budget-dashboard"
+                            ;
+    }
+    #budgetContainer .navigation{
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        border-radius: 0;
+    }
+    .navigation .profile img{
+        width: 55px;
+    }
+    .navigation .budgetNav{
+        flex-direction: row;
+        align-items: center;
+        gap: 0 3rem;
+    }
+    #budgetContainer .overviewCon{
+        padding: 1rem 1.2rem;
+    }
+  
+    .balance .value{
+         font-size: 1.05rem;
     }
     
-    .budget-header .account .income, .chart, .outcome{
-        height: 40px;
-        width: 150px;
-        padding: 1rem;
+    .account .income .income-total{
+        font-size: 1.05rem;
     }
     
-    
-    .budget-header .account .income .title{
-        font-size: 1.8rem;
+  
+    .account .outcome .outcome-total{
+        font-size: 1.05rem;
     }
-    .budget-header .account .income .income-total{
-        font-size: 1.2rem;
-    }
-    
-    .budget-header .account .outcome .title{
-        font-size: 1.8rem;
-    }
-    .budget-header .account .outcome .outcome-total{
-        font-size: 1.2rem;
-    }
-    
     .budget-dashboard .dash-title{
-        font-size: 1.8rem;
-        margin-bottom: 1.3rem ;
+        font-size: 2rem;
     }
     
-    .article_details a{
-        border-bottom: none;
+    .budget-dashboard #all ul{
+        width: 310px;
+        height: 245px;
     }
-     
-}
-@media screen and (max-width: 1080px){
-
-
+    .budget-dashboard #all ul::-webkit-scrollbar{
+        width: 10px;
+    }
+    
+    
+    .budget-dashboard #all ul.list li .entry{
+        width: 210px;
+    }
+    
     .budget-dashboard #all ul.list li #delete{
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
+        background-size: 18px 18px;
     }
-    .budget-dashboard #expense .input input#expense-title-input{
-        height: 40px;
-        width : 100px;
-        padding-left: 4px;
-        font-size: 1.2rem;
-    }
-    
-    .budget-dashboard #expense .input input#expense-amount-input{
-        height: 40px;
-        width : 100px;
-        padding-left: 4px;
-        font-size: 1.2rem;
-    }
-    
     .budget-dashboard #expense .input .add-expense img{
-        width: 33px;
-        height: 33px;
+        width: 42px;
+        height: 42px;
     }
-
+    
+    .budget-dashboard #expense ul{
+        width: 310px;
+        height: 245px;
+    }
+    .budget-dashboard #expense ul::-webkit-scrollbar{
+        width: 10px;
+        
+    }
     
     .budget-dashboard #expense ul.list li #edit{
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
+        background-size: 18px 18px;
     }
     
     .budget-dashboard #expense ul.list li #delete{
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
+        background-size: 18px 18px;
+    }
+
+    .budget-dashboard #income .input .add-income img{
+        width: 42px;
+        height: 42px;
     }
     
-    .budget-dashboard #income .input input#income-title-input{
-        height: 40px;
-        width : 100px;
-        padding-left: 4px;
+    .budget-dashboard #income ul{
+        width: 310px;
+        height: 245px;
+    }
+    .budget-dashboard #income ul::-webkit-scrollbar{
+        width: 10px;
+        
+    }  
+    .budget-dashboard #income ul.list li #edit{
+        width: 30px;
+        height: 30px;
+        background-size: 18px 18px;
+    }
+    
+    .budget-dashboard #income ul.list li #delete{
+        background-size: 18px 18px;
+    }
+   
+}
+
+@media screen and (max-width: 786px){
+    header{
+        padding: 2%;
+        backdrop-filter: blur(0);
+        background-color: var(--BG-COLOR);
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background-color: var(--BG-COLOR);
+        display: none;
+        justify-content: start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0;
+    }
+    .navbar.active{
+        display: inline-flex;
+    }
+    .navbar a{
+        font-size: 1.3rem;
+        margin: 1.5rem 0;
+    }
+
+    header .icon{
+        width: 100%;
+    }
+    .icon #MenuIcon{
+        display: block;
+        cursor: pointer;
+    }
+
+    .balance .title{
+        font-size: 1.2rem;
+    }
+    .account .income .title{
+        font-size: 1.2rem;
+    }
+    .account .outcome .title{
+        font-size: 1.2rem;
+    }
+    .budget-dashboard #all ul.list li{
+        font-size: 1.15rem;
+    }
+    .budget-dashboard #all ul.list li.expense{
+        font-size: 1.15rem;
+    }
+
+    .budget-dashboard #expense .input input#expense-title-input{
+        width : 155px;
+        font-size: 1.15rem;
+    }
+
+    .budget-dashboard #expense .input input#expense-amount-input{
+        width : 110px;
+        font-size: 1.15rem;
+    }
+    .budget-dashboard #expense ul.list li{
+        font-size: 1.15rem;
+    }
+    
+    .budget-dashboard #expense ul.list li .entry{
+        width: 210px;
+    }
+       .budget-dashboard #income .input input#income-title-input{
+        width : 155px;
+        font-size: 1.15rem;
+    }
+    
+    .budget-dashboard #income .input input#income-amount-input{
+        width : 110px;
+        font-size: 1.15rem;
+    }
+    
+
+  .budget-dashboard #income ul.list li{
+        font-size: 1.15rem;
+    }
+    
+    .budget-dashboard #income ul.list li .entry{
+        width: 210px;
+    }
+
+     #footer{
+        grid-template-columns: repeat(3, auto);
+        gap: 0.8rem;
+    }
+
+}
+@media screen and (max-width: 656px){
+    body #budgetContainer{
+        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "navigation"
+                            "overviewCon"
+                            "chartDiv"
+                            "budget-dashboard";
+    }
+    #budgetContainer .budget-dashboard{
+        border-radius: 0;
+    }
+    .navigation .budgetNav{
+        gap: 0 1rem;
+    }
+    .budgetNav a{
+        font-size: 1rem;
+    }
+    .balance .title{
+        font-size: 1.5rem;
+    }
+    .account .income .title{
+        font-size: 1.5rem;
+    }
+    .account .outcome .title{
+        font-size: 1.5rem;
+    }
+    .budget-dashboard #all ul.list li{
+        font-size: 1.3rem;
+    }
+    .budget-dashboard #all ul.list li.expense{
+        font-size: 1.3rem;
+    }
+
+    .budget-dashboard #expense .input input#expense-title-input{
+        width : 185px;
+        font-size: 1.2rem;
+    }
+
+    .budget-dashboard #expense .input input#expense-amount-input{
+        width : 130px;
+        font-size: 1.2rem;
+    }
+    .budget-dashboard #expense ul.list li{
+        font-size: 1.3rem;
+    }
+    
+    .budget-dashboard #expense ul.list li .entry{
+        width: 240px;
+    }
+       .budget-dashboard #income .input input#income-title-input{
+        width : 185px;
         font-size: 1.2rem;
     }
     
     .budget-dashboard #income .input input#income-amount-input{
-        height: 40px;
-        width : 100px;
-        padding-left: 4px;
+        width : 130px;
         font-size: 1.2rem;
+    }
+    
+
+  .budget-dashboard #income ul.list li{
+        font-size: 1.3rem;
+    }
+    
+    .budget-dashboard #income ul.list li .entry{
+        width: 240px;
+    }
+    #footer{
+        gap: 2rem 0;
+        font-size: 95%;
+    }
+    #footer .footerNav{
+        grid-column: 1 /-1;
+        padding: 1rem;
+    }
+    #footer .footerQuickLinks{
+        grid-column: 1/3;
+    }
+    #footer .footer__container{
+        grid-column: 1 /-1;
+        padding: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 456px){
+    html{
+        font-size: 87%;
+    }
+    header{
+        padding: 3.5% 2%;
+    }
+    .icon #MenuIcon{
+        font-size: 2.2rem;
         
     }
-    
-    .budget-dashboard #income .input .add-income img{
-        width: 33px;
-        height: 33px;
+    header .logo {
+        font-size: 2rem;
     }
-    
-    .budget-dashboard #income ul.list li #edit{
-        width: 25px;
-        height: 25px;
+    .logo img{
+        width: 28px;
     }
-    
-    .budget-dashboard #income ul.list li #delete{
-        width: 25px;
-        height: 25px;
+    .homedetails h1, .wraper{
+        font-size: 3.2rem;
     }
-
-    #main_container .articles{
-        grid-template-columns: repeat(1, .7fr);
-        
-    }
-
-    .article_details img{
-        width: 100%;
-    }
-
-    .article_details a{
-        font-size: .7rem;
-        margin-top: .2rem;
-        border-bottom: none;
-    }
-   
-}
-
-@media screen and (max-width: 915px){
-    body #main_container{
-        grid-template-columns: 1fr 2fr;
-    }
-    #main_container .budget-dashboard{
-        height: 100vh;
-    }
-    .articles .article_details{
-        display: none;
-    }
-   
-}
-
-@media screen and (max-width: 820px){
-    body #main_container{
-        grid-template-columns: repeat(1,2fr);   
-    }
-    #main_container .budget-container{
-        height: 100vh;
-    }
-}
-
-@media screen and (max-width: 580px){
-    body #main_container{
-        grid-template-columns: repeat(1,1fr);
-        padding: auto;
-    } 
-
-    header .profile h3{
-        font-size: 1.6rem;
-    }
-    
-    .menu a{
-        margin-bottom: 1.4rem;
-        padding: 1.3rem;
+    .homedetails a{
+        width: 180px;
         font-size: 1.4rem;
     }
- 
-    header .sidebar{
-        width: 410px;
-        transform: translateX(-410px);
+    .homedetails p{
+        font-size: 1rem;
     }
-    .budget-dashboard .dash-title{
-        font-size: 2.5rem;
+    .navigation .profile img{
+        width: 40px;
+    }
+    .profile h5{
+        font-size: 65%;
+    }
+    .budget-dashboard #expense .input input#expense-title-input{
+        width : 145px;
+    }
+
+    .budget-dashboard #expense .input input#expense-amount-input{
+        width : 110px;
+    }
+    .budget-dashboard #income .input input#income-title-input{
+        width : 145px;
+    }
+    
+    .budget-dashboard #income .input input#income-amount-input{
+        width : 110px;
+    }
+    #budgetContainer .chartDiv{
+        border-radius: 0;
         
-    }
-
-    #footICons p {
-        font-size: 1rem;
-    }
     
-    .details a{
-        font-size: 1rem;
-    }
-
-   
-}
-@media screen and (max-width: 455px){
-    .Header_Icon a{
-        right: 20px;
-        top: 15px;
-    }
-
-    .budget-container .app-title{
-        width: 100%; 
-        margin-bottom: 1.5rem;  
-    }
-    
-    .budget-header .balance{
-       margin: 1.5rem;
-    }
-
-    .budget-header .account{
-        margin: 1rem 0 0 0;
-    }
-    
-    .budget-header .account .income, .chart, .outcome{
-        height: 40px;
-        width: 110px;
-        margin: .5rem 0;
-        padding: .6rem;
     }
 
 }
-
-@media screen and (max-width: 365px) {
-    .budget-dashboard #all{
-        width: 300px;
-        height: 280px;
-    }
-    .budget-dashboard #all ul{
-        width: 300px;
-        height: 270px;
-    }
-
-    .budget-dashboard #expense{
-        width: 300px;
-        height: 280px;
-    }
-    
-    .budget-dashboard #expense ul{
-        width: 300px;
-        height: 270px;
-    }
-    
-    .budget-dashboard #income{
-        width: 300px;
-        height: 280px;
-    }
-    
-    .budget-dashboard #income ul{
-        width: 300px;
-        height: 270px;
-    }
-}
-
