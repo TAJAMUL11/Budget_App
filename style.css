@@ -197,11 +197,12 @@ body #budgetContainer{
 }
 
 .navigation .profile img{
-    width: 90px;
+    width: 55px;
     height: auto;
     object-fit: contain;
-    border-radius: 50%;
+   clip-path: circle(50%);
     border: 1px solid var(--TEXT-COLOR-ONE);
+    background-color: var(--TEXT-COLOR-ONE);
 }
 .profile h5{
     color: var(--TEXT-COLOR-ONE);
@@ -217,7 +218,7 @@ body #budgetContainer{
 }
 .budgetNav a{
     color: var(--TEXT-COLOR-ONE);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.6;
     
 
@@ -240,17 +241,19 @@ body #budgetContainer{
     color: var(--TEXT-COLOR-ONE);
     background-color: var(--BG-box);
     border-radius: var(--boxBorder-radius);
+    padding: 1rem 1.2rem;
 }
 
 .balance .title{
     color: var(--TEXT-COLOR-ONE);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 0.4rem;
+    font-weight: 900;
 }
 
 .balance .value{
     color: var(--TEXT-COLOR-ONE);
-     font-size: 1.3rem;
+     font-size: 1.5rem;
 }
 
 .account{
@@ -701,7 +704,7 @@ background-color: var(--TEXT-COLOR-TWO);
     padding: 1% 2%;
     display: grid;
     grid-template-columns: repeat(4, auto);
-    gap: 0 0.5rem;
+    gap: 1rem;
     border-top: 1px solid var(--BG-box);
 }
 #footer .footerNav{
@@ -888,16 +891,12 @@ background-color: var(--TEXT-COLOR-TWO);
     }
     body #budgetContainer{
         grid-template-columns: repeat(3, 1fr);
-        grid-template-columns: 0.6fr 1.2fr 1.6fr;
+        grid-template-columns: 0.5fr 1fr 1.6fr;
         grid-template-areas: "navigation overviewCon budget-dashboard"
                             "navigation overviewCon budget-dashboard"
                             "navigation chartDiv budget-dashboard"
                             ;
     }
-    .navigation .profile img{
-        width: 70px;
-    }
-
     .account .income, .outcome{
         margin: 0.8rem;
     }
@@ -907,111 +906,34 @@ background-color: var(--TEXT-COLOR-TWO);
 @media screen and (max-width: 986px){
     body #budgetContainer{
         grid-template-columns: repeat(3, 1fr);
-        grid-template-columns: 0.6fr 1.2fr 1.6fr;
+        grid-template-columns: 0.7fr 1fr 1.9fr;
         grid-template-areas: "navigation navigation  navigation"
-                            "overviewCon budget-dashboard budget-dashboard"
-                            "chartDiv budget-dashboard budget-dashboard"
+                            "overviewCon overviewCon chartDiv"
+                            " budget-dashboard budget-dashboard budget-dashboard"
                             ;
     }
     #budgetContainer .navigation{
         justify-content: space-around;
         align-items: center;
         flex-direction: row;
-        border-radius: 0;
-    }
-    .navigation .profile img{
-        width: 55px;
     }
     .navigation .budgetNav{
         flex-direction: row;
         align-items: center;
         gap: 0 3rem;
     }
-    #budgetContainer .overviewCon{
-        padding: 1rem 1.2rem;
-    }
-  
-    .balance .value{
-         font-size: 1.05rem;
-    }
-    
-    .account .income .income-total{
-        font-size: 1.05rem;
-    }
-    
-  
-    .account .outcome .outcome-total{
-        font-size: 1.05rem;
-    }
-    .budget-dashboard .dash-title{
-        font-size: 2rem;
-    }
-    
     .budget-dashboard #all ul{
-        width: 310px;
-        height: 245px;
-    }
-    .budget-dashboard #all ul::-webkit-scrollbar{
-        width: 10px;
-    }
-    
-    
-    .budget-dashboard #all ul.list li .entry{
-        width: 210px;
-    }
-    
-    .budget-dashboard #all ul.list li #delete{
-        width: 30px;
-        height: 30px;
-        background-size: 18px 18px;
-    }
-    .budget-dashboard #expense .input .add-expense img{
-        width: 42px;
-        height: 42px;
+        width: 325px;
+        height: 250px;
     }
     
     .budget-dashboard #expense ul{
-        width: 310px;
-        height: 245px;
-    }
-    .budget-dashboard #expense ul::-webkit-scrollbar{
-        width: 10px;
-        
-    }
-    
-    .budget-dashboard #expense ul.list li #edit{
-        width: 30px;
-        height: 30px;
-        background-size: 18px 18px;
-    }
-    
-    .budget-dashboard #expense ul.list li #delete{
-        width: 30px;
-        height: 30px;
-        background-size: 18px 18px;
-    }
-
-    .budget-dashboard #income .input .add-income img{
-        width: 42px;
-        height: 42px;
-    }
-    
+        width: 325px;
+        height: 250px;
+    }    
     .budget-dashboard #income ul{
-        width: 310px;
-        height: 245px;
-    }
-    .budget-dashboard #income ul::-webkit-scrollbar{
-        width: 10px;
-        
-    }  
-    .budget-dashboard #income ul.list li #edit{
-        width: 30px;
-        height: 30px;
-        background-size: 18px 18px;
-    }
-    
-    .budget-dashboard #income ul.list li #delete{
-        background-size: 18px 18px;
+        width: 325px;
+        height: 250px;
     }
    
 }
@@ -1050,58 +972,7 @@ background-color: var(--TEXT-COLOR-TWO);
         display: block;
         cursor: pointer;
     }
-
-    .balance .title{
-        font-size: 1.2rem;
-    }
-    .account .income .title{
-        font-size: 1.2rem;
-    }
-    .account .outcome .title{
-        font-size: 1.2rem;
-    }
-    .budget-dashboard #all ul.list li{
-        font-size: 1.15rem;
-    }
-    .budget-dashboard #all ul.list li.expense{
-        font-size: 1.15rem;
-    }
-
-    .budget-dashboard #expense .input input#expense-title-input{
-        width : 155px;
-        font-size: 1.15rem;
-    }
-
-    .budget-dashboard #expense .input input#expense-amount-input{
-        width : 110px;
-        font-size: 1.15rem;
-    }
-    .budget-dashboard #expense ul.list li{
-        font-size: 1.15rem;
-    }
-    
-    .budget-dashboard #expense ul.list li .entry{
-        width: 210px;
-    }
-       .budget-dashboard #income .input input#income-title-input{
-        width : 155px;
-        font-size: 1.15rem;
-    }
-    
-    .budget-dashboard #income .input input#income-amount-input{
-        width : 110px;
-        font-size: 1.15rem;
-    }
-    
-
-  .budget-dashboard #income ul.list li{
-        font-size: 1.15rem;
-    }
-    
-    .budget-dashboard #income ul.list li .entry{
-        width: 210px;
-    }
-
+        
      #footer{
         grid-template-columns: repeat(3, auto);
         gap: 0.8rem;
@@ -1110,6 +981,7 @@ background-color: var(--TEXT-COLOR-TWO);
 }
 @media screen and (max-width: 656px){
     body #budgetContainer{
+        gap: 1px;
         grid-template-columns: 1fr;
         grid-template-columns: 1fr;
         grid-template-areas: "navigation"
@@ -1117,78 +989,90 @@ background-color: var(--TEXT-COLOR-TWO);
                             "chartDiv"
                             "budget-dashboard";
     }
+    #budgetContainer .navigation{
+        border-radius: 0;
+        border-bottom: 2px solid var(--BG-COLOR);
+        padding: 1rem;
+    }
+    .navigation .profile img{
+        width: 35px;
+    }
     #budgetContainer .budget-dashboard{
         border-radius: 0;
+        padding: 2.2%;
     }
-    .navigation .budgetNav{
-        gap: 0 1rem;
+    #budgetContainer .overviewCon{
+        border-radius: 0;
+        padding: 1.7rem;
+    }
+    #budgetContainer .chartDiv{
+        border-radius: 0;
+        padding: 1rem;
     }
     .budgetNav a{
-        font-size: 1rem;
+        font-size: 1.03rem;
     }
-    .balance .title{
-        font-size: 1.5rem;
+    .budget-dashboard #expense ul::-webkit-scrollbar{
+        width: 10px;
+        
     }
-    .account .income .title{
-        font-size: 1.5rem;
+    
+     .budget-dashboard #expense ul.list li #edit{
+        width: 30px;
+        height: 30px;
+        background-size: 20px 20px;
     }
-    .account .outcome .title{
-        font-size: 1.5rem;
-    }
-    .budget-dashboard #all ul.list li{
-        font-size: 1.3rem;
-    }
-    .budget-dashboard #all ul.list li.expense{
-        font-size: 1.3rem;
+    
+    .budget-dashboard #expense ul.list li #delete{
+        width: 30px;
+        height: 30px;
+        background-size: 20px 20px;
     }
 
-    .budget-dashboard #expense .input input#expense-title-input{
-        width : 185px;
-        font-size: 1.2rem;
+    .budget-dashboard #income .input .add-income img{
+        width: 45px;
+        height: 45px;
     }
-
-    .budget-dashboard #expense .input input#expense-amount-input{
-        width : 130px;
-        font-size: 1.2rem;
+        .budget-dashboard #all ul::-webkit-scrollbar{
+        width: 10px;
     }
-    .budget-dashboard #expense ul.list li{
-        font-size: 1.3rem;
+        
+    .budget-dashboard #all ul.list li #delete{
+        width: 30px;
+        height: 30px;
+        background-size: 20px 20px;
     }
-    
-    .budget-dashboard #expense ul.list li .entry{
-        width: 240px;
+    .budget-dashboard #expense .input .add-expense img{
+        width: 45px;
+        height: 45px;
     }
-       .budget-dashboard #income .input input#income-title-input{
-        width : 185px;
-        font-size: 1.2rem;
-    }
-    
-    .budget-dashboard #income .input input#income-amount-input{
-        width : 130px;
-        font-size: 1.2rem;
-    }
-    
-
-  .budget-dashboard #income ul.list li{
-        font-size: 1.3rem;
+       .budget-dashboard #income ul::-webkit-scrollbar{
+        width: 10px;
+        
+    }  
+    .budget-dashboard #income ul.list li #edit{
+        width: 30px;
+        height: 30px;
+        background-size: 20px 20px;
     }
     
-    .budget-dashboard #income ul.list li .entry{
-        width: 240px;
+    .budget-dashboard #income ul.list li #delete{
+        background-size: 20px 20px;
     }
+     
     #footer{
-        gap: 2rem 0;
-        font-size: 95%;
+        gap: 2rem 4rem;
     }
     #footer .footerNav{
-        grid-column: 1 /-1;
+        grid-column: 1 /5;
         padding: 1rem;
     }
     #footer .footerQuickLinks{
-        grid-column: 1/3;
+        grid-column: 2/3;
+        
     }
     #footer .footer__container{
-        grid-column: 1 /-1;
+        grid-column: 1 /5;
         padding: 1rem;
     }
 
@@ -1201,16 +1085,7 @@ background-color: var(--TEXT-COLOR-TWO);
     header{
         padding: 3.5% 2%;
     }
-    .icon #MenuIcon{
-        font-size: 2.2rem;
-        
-    }
-    header .logo {
-        font-size: 2rem;
-    }
-    .logo img{
-        width: 28px;
-    }
+
     .homedetails h1, .wraper{
         font-size: 3.2rem;
     }
@@ -1221,30 +1096,30 @@ background-color: var(--TEXT-COLOR-TWO);
     .homedetails p{
         font-size: 1rem;
     }
-    .navigation .profile img{
-        width: 40px;
+    .navigation .budgetNav{
+        gap: 0 1rem;
+        justify-content: center;
     }
-    .profile h5{
-        font-size: 65%;
-    }
-    .budget-dashboard #expense .input input#expense-title-input{
-        width : 145px;
-    }
-
-    .budget-dashboard #expense .input input#expense-amount-input{
-        width : 110px;
-    }
-    .budget-dashboard #income .input input#income-title-input{
-        width : 145px;
+    .budget-dashboard #all ul{
+        width: 90%;
+        padding: 1rem;
     }
     
-    .budget-dashboard #income .input input#income-amount-input{
-        width : 110px;
+    .budget-dashboard #expense ul{
+        width: 90%;
+        padding: 1rem;
+    }    
+    .budget-dashboard #income ul{
+        width: 90%;
+        padding: 1rem;
     }
-    #budgetContainer .chartDiv{
-        border-radius: 0;
-        
-    
-    }
+}
 
+
+@media screen and (max-width: 386px){
+
+    html{
+        font-size: 80%;
+    }
+   
 }
