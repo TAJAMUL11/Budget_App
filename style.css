@@ -1,1125 +1,970 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-*{
-    list-style: none;
-    text-decoration: none;
-    -webkit-user-select: none;      
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    padding: 0;
-    box-sizing: border-box;
-    margin: 0;
-    font-family: 'Roboto';
+/* General reset */
+
+* {
+  list-style: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Roboto";
 }
 
-:root{
-    --TEXT-COLOR-ONE :#fff;
-    --TEXT-COLOR-TWO : #f0624d;
-    --BG-COLOR : rgba(10, 10, 10, 0.961);
-    --BG-box : rgba(63, 62, 62, 0.282);
-    --Boder_radius : 5px;
-    --box_shadow-btn : 0 0 0.5rem #f0624d;
-    --boxBorder-radius: 17px;
+:root {
+  --TEXT-COLOR-ONE: #fff;
+  --TEXT-COLOR-TWO: #f0624d;
+  --BG-COLOR: rgba(10, 10, 10, 0.961);
+  --BG-box: rgba(63, 62, 62, 0.282);
+  --Boder_radius: 5px;
+  --box_shadow-btn: 0 0 0.5rem #f0624d;
+  --boxBorder-radius: 17px;
 }
-html{
-    scroll-behavior: smooth;
-    scroll-padding: 5rem;
-    font-family: var(--FONT-FAMILY);
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 5rem;
+  font-family: var(--FONT-FAMILY);
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  overflow-x: hidden;
+}
+/* For Webkit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
 /*=====================================Header Content================================*/
-header{
-    background-color: #00000000;
-    backdrop-filter: blur(10px);
-    padding: 1% 1.6%;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 99;
+header {
+  background-color: #00000000;
+  backdrop-filter: blur(10px);
+  padding: 1% 1.6%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
 }
-header.sticky{
-    background-color: var(--BG-COLOR);
+header.sticky {
+  background-color: rgba(0, 0, 0, 0.97);
 }
-header .icon{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header .icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.icon #MenuIcon{
-    font-size: 2.5rem;
-    display: none;
-    color: var(--TEXT-COLOR-ONE);
-    
+.icon #MenuIcon {
+  font-size: 2.5rem;
+  display: none;
+  color: var(--TEXT-COLOR-ONE);
 }
 header .logo {
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 2.2rem;
-    text-decoration: none;
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 2.2rem;
+  text-decoration: none;
 }
-.logo img{
-    width: 35px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 .3rem var(--TEXT-COLOR-TWO));
+.logo img {
+  width: 35px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 0.3rem var(--TEXT-COLOR-TWO));
 }
 
-header .navbar{
-    display: flex;
-    align-items: center;
-    gap: 0 2rem;
-    text-decoration: none;
+header .navbar {
+  display: flex;
+  align-items: center;
+  gap: 0 2rem;
+  text-decoration: none;
 }
-.navbar a{
-    font-size: 1.4rem;
-    color: var(--TEXT-COLOR-ONE);
-    margin: 0 0.3rem;
-    transition: all 0.3s ease-in-out;
+.navbar a {
+  font-size: 1.4rem;
+  color: var(--TEXT-COLOR-ONE);
+  margin: 0 0.3rem;
+  transition: all 0.3s ease-in-out;
 }
 .navbar a:hover,
 .navbar a:focus,
-.navbar a:active{
-    color: var(--TEXT-COLOR-TWO);
-    transform: scale(0.95);
-}
-.navbar .signIn{
-    background-color: var(--TEXT-COLOR-TWO);
-    padding: 0.5rem;
-    border-radius: var(--Boder_radius);
-    box-shadow: var(--box_shadow-btn);
-    transition: all 0.2s ease-in-out;
-    font-size: 1.3rem;
-}
-.navbar .signIn:hover,
-.navbar .signIn:focus,
-.navbar .signIn:active{
-    color: var(--TEXT-COLOR-ONE);
-    transform: scale(1);
-    box-shadow: none;
+.navbar a:active {
+  color: var(--TEXT-COLOR-TWO);
+  transform: scale(0.95);
 }
 
 /*=================================HOME PAGE =================================*/
-#Home{
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    background-color: var(--BG-COLOR);
-    background: linear-gradient(to right, rgba(20, 20, 20, 0.91),rgba(20, 20, 20, 0.91));
+#Home {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--BG-COLOR);
+  background: linear-gradient(
+    to right,
+    rgba(20, 20, 20, 0.91),
+    rgba(20, 20, 20, 0.91)
+  );
 }
 
-#Home #homeVideo{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;  
+#Home #homeVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
-#Home .homedetails{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    text-align: center;  
-    color: var(--TEXT-COLOR-ONE);
-    display: flex; 
-    align-items: center;
-    flex-direction: column;
-    gap: 1.5rem 0;
+#Home .homedetails {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--TEXT-COLOR-ONE);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem 0;
 }
-.homedetails h1, .wraper{
-    font-size: 3.8rem;
+.homedetails h1,
+.wraper {
+  font-size: 4.3rem;
 }
-.wraper{
-    white-space: nowrap;
+.wraper {
+  white-space: nowrap;
 }
-.homedetails p{
-    font-size: 1.2rem;
+.homedetails p {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  opacity: 0.8;
 }
-.homedetails a{
-    color: var(--TEXT-COLOR-ONE);
-    font-weight: 500;
-    font-size: 1.7rem;
-    background-color: var(--TEXT-COLOR-TWO);
-    padding: 0.7rem 1.2rem;
-    border-radius: var(--Boder_radius);
-    box-shadow: var(--box_shadow-btn);
-    transition: 0.2s ease-in-out;
-    width: 200px;
+.homedetails a {
+  display: block;
+  color: var(--TEXT-COLOR-ONE);
+  font-weight: 500;
+  font-size: 1.35rem;
+  background-color: var(--TEXT-COLOR-TWO);
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--Boder_radius);
+  box-shadow: var(--box_shadow-btn);
+  transition: 0.2s ease-in-out;
 }
 .homedetails a:hover,
 .homedetails a:focus,
-.homedetails a:active{
-    box-shadow: none;
+.homedetails a:active {
+  box-shadow: none;
 }
-
 
 /* 
 ========================================= Budget Container================================= */
 
-body #budgetContainer{
-    min-height: 100vh;
-    padding: 0.1rem;
-    overflow: hidden;
-    background-color: rgb(0, 0, 0);
-    position: relative;
-    display: grid;
-    gap: 0.3rem;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-columns: 0.8fr 1.6fr 1fr 1fr;
-    grid-template-areas: "navigation overviewCon budget-dashboard budget-dashboard"
-                        "navigation overviewCon budget-dashboard budget-dashboard"
-                        "navigation chartDiv budget-dashboard budget-dashboard"
-                        "navigation chartDiv budget-dashboard budget-dashboard";
+body #budgetContainer {
+  padding: 0 0.25rem 0.1rem 0.25rem;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.96);
+  position: relative;
+  display: grid;
+  gap: 0.3rem;
+  grid-template-columns: 0.8fr 1.2fr 1.6fr 1.2fr;
+  grid-template-areas:
+    "navigation navigation navigation navigation"
+    "overviewCon overviewCon budget-dashboard budget-dashboard"
+    "overviewCon overviewCon budget-dashboard budget-dashboard"
+    "chartDiv chartDiv budget-dashboard budget-dashboard";
 }
 
-#budgetContainer .navigation{
-    grid-area: navigation;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: var(--BG-box);
-    border-radius: var(--boxBorder-radius);
-    padding: 0.6rem 0;
+#budgetContainer .navigation {
+  grid-area: navigation;
+  background-color: var(--BG-box);
+  padding: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem 0;
 }
-.navigation .profile{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 0.5rem 0;
+.navigation h3 {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 3rem;
 }
-
-.navigation .profile img{
-    width: 55px;
-    height: auto;
-    object-fit: contain;
-   clip-path: circle(50%);
-    border: 1px solid var(--TEXT-COLOR-ONE);
-    background-color: var(--TEXT-COLOR-ONE);
-}
-.profile h5{
-    color: var(--TEXT-COLOR-ONE);
-    text-align: center;
-    
-}
-.navigation .budgetNav{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    height: 100%;
-    transition: all 0.3s ease-in-out;
-}
-.budgetNav a{
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 1.3rem;
-    opacity: 0.6;
-    
-
-}
-.budgetNav a:hover,
-.budgetNav a:focus,
-.budgetNav a:active{
-    opacity: 1;
-    text-shadow: 0 0 0.2rem var(--TEXT-COLOR-TWO);
+.navigation p {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 0.8rem;
+  opacity: 0.5;
 }
 
-
-
-#budgetContainer .overviewCon{
-    grid-area: overviewCon;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    color: var(--TEXT-COLOR-ONE);
-    background-color: var(--BG-box);
-    border-radius: var(--boxBorder-radius);
-    padding: 1rem 1.2rem;
+#budgetContainer .overviewCon {
+  grid-area: overviewCon;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  color: var(--TEXT-COLOR-ONE);
+  background-color: var(--BG-box);
+  border-radius: var(--boxBorder-radius);
+  padding: 1rem 1.2rem;
 }
 
-.balance .title{
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 1.6rem;
-    margin-bottom: 0.4rem;
-    font-weight: 900;
+.balance .title {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+  font-weight: 900;
 }
 
-.balance .value{
-    color: var(--TEXT-COLOR-ONE);
-     font-size: 1.5rem;
+.balance .value {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 1.5rem;
 }
 
-.account{
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;  
+.account {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.account .income, .outcome{
-    margin: 1rem;
-    padding: 0.6rem;
+.account .income,
+.outcome {
+  margin: 1rem;
+  padding: 0.6rem;
 }
 
-.account .income .title{
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 1.5rem;
-    margin-bottom: .4rem;
+.account .income .title {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
 }
-.account .income .income-total{
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 1.3rem;
+.account .income .income-total {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 1.3rem;
 }
 
-.account .outcome .title{
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 1.5rem;
-    margin-bottom: .4rem;
+.account .outcome .title {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
 }
-.account .outcome .outcome-total{
-    color: var(--TEXT-COLOR-TWO);
-    font-size: 1.3rem;
+.account .outcome .outcome-total {
+  color: var(--TEXT-COLOR-TWO);
+  font-size: 1.3rem;
 }
 
 /*/////////////   DASHBOARD    /////////////*/
 
-#budgetContainer .budget-dashboard{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    padding: 2% 0;
-    background-color: var(--BG-box); 
-    grid-area: budget-dashboard;
-    border-radius: var(--boxBorder-radius);
+#budgetContainer .budget-dashboard {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  padding: 2% 0;
+  background-color: var(--BG-box);
+  grid-area: budget-dashboard;
+  border-radius: var(--boxBorder-radius);
 }
 
-.budget-dashboard .dash-title{
-    width: 70%;
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 2.3rem;
-    margin-bottom: 2rem ;
-    font-weight: bolder;
+.budget-dashboard .dash-title {
+  width: 70%;
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+  font-weight: bolder;
 }
-.budget-dashboard .toggle{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.toggle .tab1, .tab2, .tab3{
-    cursor: pointer;
-    font-size: 1.4rem;
-    padding: .5rem;
-    color: var(--TEXT-COLOR-ONE);
-    opacity: 0.4;
-    font-weight: 500;
+.budget-dashboard .toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.active{
-    opacity : 1 !important;
+.toggle .tab1,
+.tab2,
+.tab3 {
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  color: var(--TEXT-COLOR-ONE);
+  opacity: 0.4;
+  font-weight: 500;
+  border: 1px solid var(--TEXT-COLOR-ONE);
+  border-radius: var(--Boder_radius);
 }
 
-.hide{
-    display: none;
+.active {
+  opacity: 1 !important;
 }
 
-.budget-dashboard input{
-    -webkit-user-select: auto;      
-    -moz-user-select: auto;
-    -ms-user-select: auto;
-    user-select: auto;
-    width: 100%;
-
+.hide {
+  display: none;
 }
 
 /* ////////// Tabs --- ALL ///////////// */
-
-.budget-dashboard #all{
-    width: 360px;
-    height: 339px;
-    position: relative;
-}
-.budget-dashboard #all ul{
-    width: 360px;
-    height: 285px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-top: 1.1rem;
-    overflow-x: auto;
-}
-.budget-dashboard #all ul::-webkit-scrollbar{
-    background-color: var(--TEXT-COLOR-ONE);
-    border-radius: var(--boxBorder-radius);
-    width: 12px;
-}
-.budget-dashboard #all ul::-webkit-scrollbar-thumb{
-    background-color: var(--TEXT-COLOR-TWO);
-    border-radius: var(--boxBorder-radius);
-
+.budget-dashboard .entry {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0 0.3rem;
 }
 
-.budget-dashboard #all ul.list li{
-    position: relative;
-    font-size: 1.4rem;
-    color: var(--TEXT-COLOR-ONE);
+.budget-dashboard .entry .dTitle {
+  font-size: 1.55rem;
+  text-transform: capitalize;
+}
+.budget-dashboard .entry .dAmount {
+  font-size: 1.35rem;
+}
+.budget-dashboard #all,
+.budget-dashboard #expense,
+.budget-dashboard #income {
+  width: 100%;
+  height: 470px;
+  position: relative;
+}
+.budget-dashboard #all ul {
+  width: 100%;
+  max-height: 100%;
+  list-style: none;
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+}
+.budget-dashboard #all ul::-webkit-scrollbar,
+.budget-dashboard #expense ul::-webkit-scrollbar,
+.budget-dashboard #income ul::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0;
+}
+.budget-dashboard #all ul::-webkit-scrollbar-thumb,
+.budget-dashboard #expense ul::-webkit-scrollbar-thumb,
+.budget-dashboard #income ul::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
-.budget-dashboard #all ul.list li *{
-    display: inline-block;
-    height: 30px;
-    margin-bottom: 0.2rem;
-    vertical-align: middle;
+.budget-dashboard #all ul.list li {
+  position: relative;
+  margin: 0.6rem 0;
+  color: var(--TEXT-COLOR-ONE);
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
 }
 
-.budget-dashboard #all ul.list li .entry{
-    width:250px;
-    height: auto;
-    padding-left: 20px;
-    margin-bottom: 10px;;
-    word-wrap: break-word;
+.budget-dashboard #all ul.list li *,
+.budget-dashboard #expense ul.list li *,
+.budget-dashboard #income ul.list li * {
+  display: inline-block;
 }
 
-.budget-dashboard #all ul.list li #edit{
-    visibility: hidden;
+.budget-dashboard #all ul.list li #edit {
+  visibility: hidden;
 }
 
-.budget-dashboard #all ul.list li #delete{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    right: 20px;
-    cursor: pointer;
-    background-image: url('icon/trash.png');
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
+.budget-dashboard #all ul.list li #delete {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  top: 15px;
+  cursor: pointer;
+  background-image: url("icon/trash.png");
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
 }
 
-.budget-dashboard #all ul.list li.expense{
-    color: var(--TEXT-COLOR-TWO);
-    font-size: 1.4rem;
+.budget-dashboard #all ul.list li.expense {
+  color: var(--TEXT-COLOR-TWO);
 }
 
-/* //////// EXPENSE ////////// */
+/* //////// EXPENSE  and Income////////// */
 
-.budget-dashboard #expense{
-    width: 360px;
-    height: 339px;
-    position: relative;
-}
-
-.budget-dashboard #expense .input{
-   display: flex;
-   justify-content: center;
-   align-items: center; 
-   margin-top: 0.7rem;
+.budget-dashboard #expense h3,
+.budget-dashboard #income h3 {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 1.5rem;
+  width: 57%;
+  text-align: center;
+  font-weight: 400;
 }
 
-.budget-dashboard #expense .input *{
-    display: inline-block;
-    vertical-align: middle;
+.budget-dashboard #expense .input,
+#income .input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.7rem;
+}
+.budget-dashboard #expense .input input#expense-title-input,
+.budget-dashboard #income .input input#income-title-input {
+  width: 270px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin-right: 0.9rem;
+  background-color: transparent;
+  border: none;
+  outline: 1px solid #ffffff81;
+  border-radius: var(--Boder_radius);
+  color: var(--TEXT-COLOR-ONE);
 }
 
-.budget-dashboard #expense .input input#expense-title-input{
-    width : 170px;
-    padding: 1rem;
-    font-size: 1.3rem;
-    margin-right: .9rem;
-    background-color: #f3f0f029;
-    backdrop-filter: blur(10px);
-    border: none;
-    outline: none;
-    border-radius: var(--Boder_radius);
-    color: var(--TEXT-COLOR-ONE);
-}
-#expense-title-input::placeholder{
-    color: var(--TEXT-COLOR-ONE);
+.budget-dashboard #expense .input input#expense-amount-input,
+.budget-dashboard #income .input input#income-amount-input {
+  width: 140px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin-left: -10px;
+  margin-right: 3px;
+  border: none;
+  outline: 1px solid #ffffff81;
+  border-radius: var(--Boder_radius);
+  background-color: transparent;
+  color: var(--TEXT-COLOR-ONE);
 }
 
-.budget-dashboard #expense .input input#expense-amount-input{
-    width : 120px;
-    padding: 1rem;
-    font-size: 1.3rem;
-    margin-left: -10px;
-    margin-right: 3px;
-    background-color: #f3f0f029;
-    backdrop-filter: blur(10px);
-    border: none;
-    outline: none;
-    border-radius: var(--Boder_radius);
-    color: var(--TEXT-COLOR-ONE);
-}
-#expense-amount-input::placeholder{
-    color: var(--TEXT-COLOR-ONE);
+#expense .input .add-expense,
+#income .input .add-income {
+  border: none;
+  outline: none;
+  background-color: var(--TEXT-COLOR-TWO);
+  font-size: 1.05rem;
+  padding: 1rem 1.3rem;
+  color: var(--TEXT-COLOR-ONE);
+  border-radius: var(--Boder_radius);
+  cursor: pointer;
 }
 
-.budget-dashboard #expense .input .add-expense img{
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+.budget-dashboard #expense ul {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  max-height: 100%;
+  list-style: none;
+  overflow-y: auto;
 }
 
-.budget-dashboard #expense ul{
-    width: 360px;
-    height: 285px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-top:20px;
-    overflow-x: auto;
-}
-.budget-dashboard #expense ul::-webkit-scrollbar{
-    background-color: var(--TEXT-COLOR-ONE);
-    border-radius: var(--boxBorder-radius);
-    width: 12px;
-    
-}
-.budget-dashboard #expense ul::-webkit-scrollbar-thumb{
-background-color: var(--TEXT-COLOR-TWO);
-    border-radius: var(--boxBorder-radius);
+.budget-dashboard #expense ul.list li {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  height: 60px;
 }
 
-.budget-dashboard #expense ul.list li{
-    position: relative;
-    font-size: 1.4rem;
+.budget-dashboard #expense ul.list li .entry {
+  color: var(--TEXT-COLOR-TWO);
 }
 
-.budget-dashboard #expense ul.list li *{
-    display: inline-block;
-    height: 30px;
-    vertical-align: middle;
+.budget-dashboard #expense ul.list li #edit,
+.budget-dashboard #income ul.list li #edit {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 15px;
+  right: 50px;
+  cursor: pointer;
+  background-image: url("icon/edit.png");
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
 }
 
-.budget-dashboard #expense ul.list li .entry{
-    width: 250px;
-    height: auto;
-    padding-left: 20px;
-    margin-bottom: 10px;;
-    word-wrap: break-word;
-    color: var(--TEXT-COLOR-TWO);
-}
-
-.budget-dashboard #expense ul.list li #edit{
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    right: 50px;
-    cursor: pointer;
-    background-image: url("icon/edit.png");
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-}
-
-.budget-dashboard #expense ul.list li #delete{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 20px;
-    cursor: pointer;
-    background-image: url('icon/trash.png');
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
+.budget-dashboard #expense ul.list li #delete,
+.budget-dashboard #income ul.list li #delete {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 20px;
+  top: 15px;
+  cursor: pointer;
+  background-image: url("icon/trash.png");
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
 }
 
 /* /////// INCOME //////// */
 
-.budget-dashboard #income{
-    width: 360px;
-    height: 339px;
-    position: relative;
+.budget-dashboard #income ul {
+  width: 100%;
+  max-height: 100%;
+  list-style: none;
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  color: var(--TEXT-COLOR-ONE);
+}
+.budget-dashboard #income ul.list li {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.6rem;
+  height: 60px;
 }
 
-.budget-dashboard #income .input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.7rem;
+/* Graph Visuals */
+
+#budgetContainer .chartDiv {
+  grid-area: chartDiv;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem 0;
+  background-color: var(--BG-box);
+  border-radius: var(--boxBorder-radius);
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.chartDiv h3 {
+  color: var(--TEXT-COLOR-ONE);
+  margin-bottom: 0.9rem;
+  font-size: 1.4rem;
+}
+.chartDiv .colors {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  color: var(--TEXT-COLOR-ONE);
+}
+.colors #Ecolor {
+  background-color: var(--TEXT-COLOR-TWO);
+  width: 70px;
+  height: auto;
+  color: var(--TEXT-COLOR-TWO);
+  border-radius: 10%;
+  padding: 0 0.3rem;
+}
+.colors #Bcolor {
+  background-color: var(--TEXT-COLOR-ONE);
+  width: 70px;
+  height: auto;
+  color: var(--TEXT-COLOR-ONE);
+  border-radius: 10%;
+  padding: 0 0.3rem;
+}
+/*========================================Blog section========================================*/
+
+#blogs {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--BG-COLOR);
+}
+#blogs h1 {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 3.3rem;
+  text-align: center;
+  padding-top: 1rem;
+}
+#blogs .blogP {
+  color: var(--TEXT-COLOR-ONE);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 
-.budget-dashboard #income .input *{
-    display: inline-block;
-    vertical-align: middle;
+#blogs .blogContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 0.7rem;
+  padding: 1rem;
+}
+.blogContainer .blog-card {
+  background-color: var(--BG-box);
+  border-radius: var(--Boder_radius);
+  overflow: hidden;
+}
+.blog-card img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  border-radius: var(--Boder_radius);
+}
+.blog-card .card-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem 0;
+  padding: 0.5rem;
+  color: var(--TEXT-COLOR-ONE);
+  opacity: 0.8;
+}
+.card-details h3 {
+  font-size: 1.5rem;
+  color: var(--TEXT-COLOR-TWO);
+}
+.card-details p {
+  line-height: 1.4;
+}
+.card-details .blogBtn {
+  background-color: var(--TEXT-COLOR-TWO);
+  display: inline-block;
+  padding: 0.5rem;
+  color: var(--TEXT-COLOR-ONE);
+  border-radius: var(--Boder_radius);
+  box-shadow: var(--box_shadow-btn);
+  transition: all 0.3s ease;
+}
+.card-details .blogBtn:hover,
+.card-details .blogBtn:focus {
+  box-shadow: none;
 }
 
-.budget-dashboard #income .input input#income-title-input{
-    width : 170px;
-    padding: 1rem;
-    font-size: 1.3rem;
-    margin-right: .9rem;
-    background-color: #f3f0f029;
-    backdrop-filter: blur(10px);
-    border: none;
-    outline: none;
-    border-radius: var(--Boder_radius);
-    color: var(--TEXT-COLOR-ONE);
+body #modalError {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 0;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background-color: var(--Button-Background-Color);
+  max-width: 300px;
+  padding: 2.1rem;
+  color: var(--Primary-Text-Color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 1rem #000;
+  white-space: wrap;
 }
-#income-title-input::placeholder{
-    color: var(--TEXT-COLOR-ONE);
-} 
-
-#income-amount-input::placeholder{
-    color: var(--TEXT-COLOR-ONE);
-} 
-
-.budget-dashboard #income .input input#income-amount-input{
-    width : 120px;
-    padding: 1rem;
-    font-size: 1.3rem;
-    margin-left: -10px;
-    margin-right: 3px;
-    background-color: #f3f0f029;
-    backdrop-filter: blur(10px);
-    border: none;
-    outline: none;
-    border-radius: var(--Boder_radius);
-    color: var(--TEXT-COLOR-ONE);
-    
+body #modalError p {
+  width: 60%;
+  white-space: nowrap;
+  width: 100%;
+  font-size: 1.2rem;
 }
-
-.budget-dashboard #income .input .add-income img{
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+#modalError #modalClose {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bolder;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  padding: 0 0.7rem;
+  background-color: var(--Button-Hover-Background-Color);
+  border-radius: var(--border-radius);
 }
 
-.budget-dashboard #income ul{
-    width: 360px;
-    height: 285px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-top:20px;
-    overflow-x: auto;
-    color: var(--TEXT-COLOR-ONE);
-}
-.budget-dashboard #income ul::-webkit-scrollbar{
-    background-color: var(--TEXT-COLOR-ONE);
-    border-radius: var(--boxBorder-radius);
-    width: 12px;
-    
-}
-.budget-dashboard #income ul::-webkit-scrollbar-thumb{
-    background-color: var(--TEXT-COLOR-TWO);
-    border-radius: var(--boxBorder-radius);
-}
-
-.budget-dashboard #income ul.list li{
-    position: relative;
-    font-size: 1.4rem;
-}
-
-.budget-dashboard #income ul.list li *{
-    display: inline-block;
-    height: 30px;
-    vertical-align: middle;
-}
-
-.budget-dashboard #income ul.list li .entry{
-    width:250px;
-    height: auto;
-    padding-left: 20px;
-    margin-bottom: 10px;;
-    word-wrap: break-word;
-}
-
-.budget-dashboard #income ul.list li #edit{
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    right: 50px;
-    cursor: pointer;
-    background-image: url("icon/edit.png");
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-}
-
-.budget-dashboard #income ul.list li #delete{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 20px;
-    cursor: pointer;
-    background-image: url('icon/trash.png');
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-}
-
-
-#budgetContainer .chartDiv{
-    grid-area: chartDiv;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.3rem 0;
-    background-color: var(--BG-box);
-    border-radius: var(--boxBorder-radius);
-    flex-direction: column;
-    padding: 0.5rem;
-
-}
-.chartDiv h3{
-    color: var(--TEXT-COLOR-ONE);
-    text-align: left;
-    width: 70%;
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-    
-}
-.chartDiv .colors{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    color: var(--TEXT-COLOR-ONE);
-}
-.colors #Ecolor{
-    background-color: var(--TEXT-COLOR-TWO);
-    width: 70px;
-    height: auto;
-    color: var(--TEXT-COLOR-TWO);
-    border-radius: 10%;
-    padding: 0 0.3rem;
-}
-.colors #Bcolor{
-    background-color: var(--TEXT-COLOR-ONE);
-    width: 70px;
-    height: auto;
-    color: var(--TEXT-COLOR-ONE);
-    border-radius: 10%;
-    padding: 0 0.3rem;
-}
 /*========================================Footer section========================================*/
 
-#footer{
-    background-color: rgba(0, 0, 0, 0.96);
-    padding: 1% 2%;
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    gap: 1rem;
-    border-top: 1px solid var(--BG-box);
+#footer {
+  background-color: rgba(0, 0, 0, 0.96);
+  padding: 1% 2%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1rem;
+  border-top: 1px solid var(--BG-box);
 }
-#footer .footerNav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem 0;
-}
-
-.footerLogo .Flogo{
-    color: var(--TEXT-COLOR-ONE);
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 900;
-    font-size: 1.7rem;
-    
-}
-.Flogo i{
-    font-size: 3.5rem;
+#footer .footerNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem 0;
 }
 
-.footerNav .footer__icons{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
+.footerLogo .Flogo {
+  color: var(--TEXT-COLOR-ONE);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1.7rem;
+}
+.Flogo i {
+  font-size: 3.5rem;
+}
+
+.footerNav .footer__icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer__icons a,
-.footer__icons i{
-    text-decoration: none;
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 0.9rem;
-    background-color: var(--TEXT-COLOR-TWO);
-    padding: .3rem;
-    border-radius: 50%;
-    box-shadow: var(--box_shadow-btn);
-    transition: 0.3s ease-in-out all;
-    font-size: 1.1rem;
+.footer__icons i {
+  text-decoration: none;
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 0.9rem;
+  background-color: var(--TEXT-COLOR-TWO);
+  padding: 0.3rem;
+  border-radius: 50%;
+  box-shadow: var(--box_shadow-btn);
+  transition: 0.3s ease-in-out all;
+  font-size: 1.1rem;
 }
 .footer__icons a:hover,
-.footer__icons a:focus{
-    transform: scale(95%);
-    box-shadow: none;
+.footer__icons a:focus {
+  transform: scale(95%);
+  box-shadow: none;
 }
-#footer .footerQuickLinks{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+#footer .footerQuickLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.footerQuickLinks p{
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-    
+.footerQuickLinks p {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
 }
-.footerQuickLinks .quickLinks{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem 0;
-
+.footerQuickLinks .quickLinks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem 0;
 }
-.quickLinks a{
-    color: var(--TEXT-COLOR-ONE);
-    text-decoration: none;
-    opacity: 0.55;
-    transition: all 0.2s ease-in-out;
+.quickLinks a {
+  color: var(--TEXT-COLOR-ONE);
+  text-decoration: none;
+  opacity: 0.55;
+  transition: all 0.2s ease-in-out;
 }
-.quickLinks a:hover{
-    opacity: 1;
+.quickLinks a:hover {
+  opacity: 1;
 }
 
-#footer .footerSupport{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+#footer .footerSupport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.footerSupport p{
-    color: var(--TEXT-COLOR-ONE);
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-    
+.footerSupport p {
+  color: var(--TEXT-COLOR-ONE);
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
 }
-.footerSupport .Support{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem 0;
-
+.footerSupport .Support {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem 0;
 }
-.Support a{
-    color: var(--TEXT-COLOR-ONE);
-    text-decoration: none;
-    opacity: 0.55;
-    transition: all 0.2s ease-in-out;
+.Support a {
+  color: var(--TEXT-COLOR-ONE);
+  text-decoration: none;
+  opacity: 0.55;
+  transition: all 0.2s ease-in-out;
 }
-.Support a:hover{
-    opacity: 1;
+.Support a:hover {
+  opacity: 1;
 }
-
-
-
-#footer .footer__container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.footer__container h4{
-    color: var(--TEXT-COLOR-ONE);
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-.footer__container .formFooter{
-    padding: 1rem;
-    display: flex;
-    gap: 0 0.3rem;
-}
-
-.formFooter input{
-    padding: .8rem;
-    width: 250px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    color: var(--TEXT-COLOR-ONE);
-    background-color: var(--BG-box);
-    backdrop-filter: blur(10px);
-    font-size: 1rem;
-
-}
-.formFooter input::placeholder{
-    color: var(--TEXT-COLOR-ONE);
-}
-.formFooter  #subBtn{
-    border: none;
-    outline: none;
-    padding: .5rem;
-    font-size: .8rem;
-    color: var(--TEXT-COLOR-ONE);
-    font-weight: 700;
-    background-color: var(--TEXT-COLOR-TWO);
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: var(--box_shadow-btn);
-    transition: all 0.3s ease;
-}
-.formFooter #subBtn:hover{
-    box-shadow: none;
-}
-.footerRights p{
-    color: var(--TEXT-COLOR-ONE);
-    font-weight: 600;
-    letter-spacing: 0.8px;
-   
-}
-
 
 /* ================================================Media Queries=================================== */
 
- @media screen and (max-width: 1390px) {
-    html{
-        font-size: 90%;
-    }
+@media screen and (max-width: 1390px) {
+  html {
+    font-size: 90%;
+  }
 }
 
-@media screen and (max-width: 1160px){
-    .homedetails h1, .wraper{
-        font-size: 3.5rem;
-    }
-    .homedetails p{
-        font-size: 1.1rem;
-    }
-    body #budgetContainer{
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-columns: 0.5fr 1fr 1.6fr;
-        grid-template-areas: "navigation overviewCon budget-dashboard"
-                            "navigation overviewCon budget-dashboard"
-                            "navigation chartDiv budget-dashboard"
-                            ;
-    }
-    .account .income, .outcome{
-        margin: 0.8rem;
-    }
-
+@media screen and (max-width: 1160px) {
+  .homedetails h1,
+  .wraper {
+    font-size: 3.5rem;
+  }
+  .homedetails p {
+    font-size: 1.1rem;
+  }
+  body #budgetContainer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 0.5fr 0.6fr 1.6fr;
+    grid-template-areas:
+      "navigation navigation navigation"
+      "overviewCon overviewCon budget-dashboard"
+      "chartDiv chartDiv budget-dashboard";
+  }
+  .account .income,
+  .outcome {
+    margin: 0.8rem;
+  }
 }
 
-@media screen and (max-width: 986px){
-    body #budgetContainer{
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-columns: 0.7fr 1fr 1.9fr;
-        grid-template-areas: "navigation navigation  navigation"
-                            "overviewCon overviewCon chartDiv"
-                            " budget-dashboard budget-dashboard budget-dashboard"
-                            ;
-    }
-    #budgetContainer .navigation{
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: row;
-    }
-    .navigation .budgetNav{
-        flex-direction: row;
-        align-items: center;
-        gap: 0 3rem;
-    }
-    .budget-dashboard #all ul{
-        width: 325px;
-        height: 250px;
-    }
-    
-    .budget-dashboard #expense ul{
-        width: 325px;
-        height: 250px;
-    }    
-    .budget-dashboard #income ul{
-        width: 325px;
-        height: 250px;
-    }
-   
+@media screen and (max-width: 986px) {
+  body #budgetContainer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 0.7fr 1fr 1.9fr;
+    grid-template-areas:
+      "navigation navigation  navigation"
+      "overviewCon overviewCon chartDiv"
+      "budget-dashboard budget-dashboard budget-dashboard";
+  }
+  #budgetContainer .navigation {
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+  }
+  #blogs .blogContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media screen and (max-width: 786px){
-    header{
-        padding: 2%;
-        backdrop-filter: blur(0);
-        background-color: var(--BG-COLOR);
-    }
-    header .navbar{
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background-color: var(--BG-COLOR);
-        display: none;
-        justify-content: start;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 0;
-    }
-    .navbar.active{
-        display: inline-flex;
-    }
-    .navbar a{
-        font-size: 1.3rem;
-        margin: 1.5rem 0;
-    }
+@media screen and (max-width: 786px) {
+  header {
+    padding: 2%;
+    backdrop-filter: blur(0);
+    background-color: var(--BG-COLOR);
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 3%;
+    background-color: var(--BG-COLOR);
+    display: none;
+    justify-content: start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+  .navbar.active {
+    display: inline-flex;
+  }
+  .navbar a {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+  }
 
-    header .icon{
-        width: 100%;
-    }
-    .icon #MenuIcon{
-        display: block;
-        cursor: pointer;
-    }
-        
-     #footer{
-        grid-template-columns: repeat(3, auto);
-        gap: 0.8rem;
-    }
-
+  header .icon {
+    width: 100%;
+  }
+  .icon #MenuIcon {
+    display: block;
+    cursor: pointer;
+  }
 }
-@media screen and (max-width: 656px){
-    body #budgetContainer{
-        gap: 1px;
-        grid-template-columns: 1fr;
-        grid-template-columns: 1fr;
-        grid-template-areas: "navigation"
-                            "overviewCon"
-                            "chartDiv"
-                            "budget-dashboard";
-    }
-    #budgetContainer .navigation{
-        border-radius: 0;
-        border-bottom: 2px solid var(--BG-COLOR);
-        padding: 1rem;
-    }
-    .navigation .profile img{
-        width: 35px;
-    }
-    #budgetContainer .budget-dashboard{
-        border-radius: 0;
-        padding: 2.2%;
-    }
-    #budgetContainer .overviewCon{
-        border-radius: 0;
-        padding: 1.7rem;
-    }
-    #budgetContainer .chartDiv{
-        border-radius: 0;
-        padding: 1rem;
-    }
-    .budgetNav a{
-        font-size: 1.03rem;
-    }
-    .budget-dashboard #expense ul::-webkit-scrollbar{
-        width: 10px;
-        
-    }
-    
-     .budget-dashboard #expense ul.list li #edit{
-        width: 30px;
-        height: 30px;
-        background-size: 20px 20px;
-    }
-    
-    .budget-dashboard #expense ul.list li #delete{
-        width: 30px;
-        height: 30px;
-        background-size: 20px 20px;
-    }
+@media screen and (max-width: 656px) {
+  body #budgetContainer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "navigation"
+      "overviewCon"
+      "chartDiv"
+      "budget-dashboard";
+  }
+  #blogs .blogContainer {
+    grid-template-columns: 1fr;
+  }
+  .navigation h3 {
+    font-size: 2.3rem;
+  }
+  .navigation p {
+    display: none;
+  }
+  .toggle .tab1,
+  .tab2,
+  .tab3 {
+    font-size: 1.2rem;
+  }
 
-    .budget-dashboard #income .input .add-income img{
-        width: 45px;
-        height: 45px;
-    }
-        .budget-dashboard #all ul::-webkit-scrollbar{
-        width: 10px;
-    }
-        
-    .budget-dashboard #all ul.list li #delete{
-        width: 30px;
-        height: 30px;
-        background-size: 20px 20px;
-    }
-    .budget-dashboard #expense .input .add-expense img{
-        width: 45px;
-        height: 45px;
-    }
-       .budget-dashboard #income ul::-webkit-scrollbar{
-        width: 10px;
-        
-    }  
-    .budget-dashboard #income ul.list li #edit{
-        width: 30px;
-        height: 30px;
-        background-size: 20px 20px;
-    }
-    
-    .budget-dashboard #income ul.list li #delete{
-        background-size: 20px 20px;
-    }
-     
-    #footer{
-        gap: 2rem 4rem;
-    }
-    #footer .footerNav{
-        grid-column: 1 /5;
-        padding: 1rem;
-    }
-    #footer .footerQuickLinks{
-        grid-column: 2/3;
-        
-    }
-    #footer .footer__container{
-        grid-column: 1 /5;
-        padding: 1rem;
-    }
-
+  .budget-dashboard #expense ul.list li #edit,
+  .budget-dashboard #expense ul.list li #delete,
+  .budget-dashboard #income ul.list li #edit,
+  .budget-dashboard #all ul.list li #delete,
+  .budget-dashboard #income ul.list li #delete {
+    width: 30px;
+    height: 30px;
+    background-size: 20px 20px;
+  }
+  #blogs h1 {
+    font-size: 2.7rem;
+  }
+  #footer {
+    gap: 2rem 4rem;
+  }
+  #footer .footerNav {
+    grid-column: 1 /5;
+    padding: 1rem;
+  }
+  #footer .footerQuickLinks {
+    grid-column: 2/3;
+  }
 }
 
-@media screen and (max-width: 456px){
-    html{
-        font-size: 87%;
-    }
-    header{
-        padding: 3.5% 2%;
-    }
+@media screen and (max-width: 467px) {
+  html {
+    font-size: 87%;
+  }
+  header {
+    padding: 3.5% 2%;
+  }
 
-    .homedetails h1, .wraper{
-        font-size: 3.2rem;
-    }
-    .homedetails a{
-        width: 180px;
-        font-size: 1.4rem;
-    }
-    .homedetails p{
-        font-size: 1rem;
-    }
-    .navigation .budgetNav{
-        gap: 0 1rem;
-        justify-content: center;
-    }
-    .budget-dashboard #all ul{
-        width: 90%;
-        padding: 1rem;
-    }
-    
-    .budget-dashboard #expense ul{
-        width: 90%;
-        padding: 1rem;
-    }    
-    .budget-dashboard #income ul{
-        width: 90%;
-        padding: 1rem;
-    }
+  .homedetails h1,
+  .wraper {
+    font-size: 3.2rem;
+  }
+  .homedetails a {
+    font-size: 1.15rem;
+  }
+  .homedetails p {
+    font-size: 1rem;
+  }
+  .budget-dashboard #expense .input input#expense-title-input,
+  .budget-dashboard #income .input input#income-title-input {
+    width: 210px;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .budget-dashboard #expense .input input#expense-amount-input,
+  .budget-dashboard #income .input input#income-amount-input {
+    width: 110px;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  #expense .input .add-expense,
+  #income .input .add-income {
+    padding: 0.8rem 1rem;
+  }
+  .budget-dashboard .entry .dTitle {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+  }
+  .budget-dashboard .entry .dAmount {
+    font-size: 1.25rem;
+  }
 }
 
+@media screen and (max-width: 396px) {
+  html {
+    font-size: 80%;
+  }
+  .budget-dashboard #expense .input input#expense-title-input,
+  .budget-dashboard #income .input input#income-title-input {
+    width: 200px;
+  }
 
-@media screen and (max-width: 386px){
-
-    html{
-        font-size: 80%;
-    }
-   
+  .budget-dashboard #expense .input input#expense-amount-input,
+  .budget-dashboard #income .input input#income-amount-input {
+    width: 100px;
+  }
 }
